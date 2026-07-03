@@ -1,10 +1,10 @@
-# Release 0.1.9 - openroot.tech
+# Release 0.2.0-prod-prep - openroot.tech
 
-Patch release after Release 0.1.9.
+Patch release after Release 0.2.0-prod-prep.
 
 ## Changes
 
-1. Renamed product label from `PROD` to `Release 0.1.9`
+1. Renamed product label from `PROD` to `Release 0.2.0-prod-prep`
 2. Fixed the left filesystem panel:
    - sidebar now shows a curated navigation map
    - it no longer dumps the entire technical filesystem
@@ -52,7 +52,7 @@ nonroot
 ```
 
 
-## Release 0.1.9 fix
+## Release 0.2.0-prod-prep fix
 
 Fixed local boot error:
 
@@ -70,7 +70,7 @@ window.OPENROOT_CONTENT
 `js/core/app.js` also validates content loading before booting.
 
 
-## Release 0.1.9 validation/fix
+## Release 0.2.0-prod-prep validation/fix
 
 Fixed after full package inspection:
 
@@ -80,7 +80,7 @@ Fixed after full package inspection:
 - JavaScript files were syntax-checked with `node --check`.
 
 
-## Release 0.1.9
+## Release 0.2.0-prod-prep
 
 - Terminal input now stays at the top of the lower terminal panel.
 - Command results appear below the typed command, top-to-bottom.
@@ -89,7 +89,7 @@ Fixed after full package inspection:
 - Bio includes a profile image placeholder component.
 
 
-## Release 0.1.9
+## Release 0.2.0-prod-prep
 
 - Terminal input no longer looks fixed/pinned.
 - Nonroot mode now shows the same profile photo placeholder.
@@ -97,7 +97,7 @@ Fixed after full package inspection:
 - `ssh openroot.tech` triggers a fake visual intrusion alert.
 
 
-## Release 0.1.9
+## Release 0.2.0-prod-prep
 
 Terminal UX polish:
 
@@ -107,7 +107,7 @@ Terminal UX polish:
 - Top Nonroot button was rebuilt as a compact red rescue pill without breaking the header.
 
 
-## Release 0.1.9
+## Release 0.2.0-prod-prep
 
 UX-focused release:
 
@@ -117,7 +117,7 @@ UX-focused release:
 - Terminal scroll container now scrolls the whole terminal content naturally.
 
 
-## Release 0.1.9
+## Release 0.2.0-prod-prep
 
 GitHub Pages and terminal stability release:
 
@@ -132,3 +132,23 @@ GitHub Pages and terminal stability release:
   - a new prompt appears after each command
   - scroll follows the terminal transcript
 - Header buttons now submit commands through the active prompt path.
+
+
+## Release 0.2.0-prod-prep
+
+Production prep for openroot.tech:
+
+- Fixed sidebar filesystem by replacing the fragile text tree with a structured navigation renderer.
+- Header release label now reads from `OpenRootConfig.release`.
+- Added `CNAME` for `openroot.tech`.
+- Added `package.json` automation:
+  - `npm run validate:js`
+  - `npm run validate:site`
+  - `npm run build:content`
+  - `npm run predeploy`
+- Added real `scripts/build-content.js` starter to generate `js/content.generated.js` from `/content`.
+- GitHub Pages workflow now runs `npm run predeploy` before deploying.
+- Production release direction:
+  - Keep `main` as the deployed branch.
+  - Use `Release 0.2.x` for polish and content updates.
+  - Move to `Release 1.0.0` once final bio, links, images and project summaries are complete.

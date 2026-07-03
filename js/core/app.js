@@ -25,6 +25,89 @@
   pluginManager.register(window.OpenRootNavigationPlugin);
   pluginManager.register(window.OpenRootServicesPlugin);
 
+  function renderSidebarNav() {
+    const groups = [
+      {
+        title: "Start",
+        items: [
+          { label: "Bio", path: "/etc/bio.md", hint: "Human portfolio intro" },
+          { label: "Skills", path: "/etc/skills.json", hint: "Technical capabilities" }
+        ]
+      },
+      {
+        title: "Portfolio",
+        items: [
+          { label: "Projects", path: "/usr/projects", hint: "Project catalog" },
+          { label: "WAF", path: "/usr/projects/waf/README.md", hint: "Security cases" },
+          { label: "Certs", path: "/usr/projects/certs/README.md", hint: "AWS validation" },
+          { label: "Bemod", path: "/usr/projects/bemod/README.md", hint: "AI router" }
+        ]
+      },
+      {
+        title: "System",
+        items: [
+          { label: "Themes", path: "/etc/themes.json", hint: "Visual modes" },
+          { label: "Services", path: "/etc/services.json", hint: "Daemons" },
+          { label: "Release Log", path: "/var/log/releases.log", hint: "Version history" }
+        ]
+      },
+      {
+        title: "Contact",
+        items: [
+          { label: "Contact", path: "/dev/contact", hint: "Links and resume" },
+          { label: "Nonroot", command: "nonroot", hint: "Clean guided view" }
+        ]
+      }
+    ];
+
+    ui.el.treeView.innerHTML = "";
+
+    for (const group of groups) {
+      const section = document.createElement("section");
+      section.className = "tree-group";
+
+      const title = document.createElement("p");
+      title.className = "tree-group-title";
+      title.textContent = group.title;
+      section.appendChild(title);
+
+      for (const item of group.items) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "tree-link";
+
+        const strong = document.createElement("strong");
+        strong.textContent = item.label;
+
+        const small = document.createElement("small");
+        small.textContent = item.hint || item.path || item.command;
+
+        button.appendChild(strong);
+        button.appendChild(small);
+
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          if (item.command) {
+            if (ui.el.input) {
+              ui.el.input.value = item.command;
+              submitCurrent();
+            }
+            return;
+          }
+
+          const result = shell.openPath(item.path, true);
+          if (result) ui.print(result, "dim");
+          if (ui.el.input) ui.el.input.focus();
+        });
+
+        section.appendChild(button);
+      }
+
+      ui.el.treeView.appendChild(section);
+    }
+  }
+
+
   const savedTheme = localStorage.getItem(`${config.storagePrefix}.theme`);
   if (savedTheme && savedTheme !== "terminal") document.documentElement.dataset.theme = savedTheme;
 
@@ -65,10 +148,11 @@
     await sleep(260);
     ui.el.boot.classList.add("hidden");
     ui.el.tui.classList.remove("hidden");
-    ui.el.treeView.textContent = fs.sidebarTree();
+    renderSidebarNav();
+    if (ui.el.releaseLabel) ui.el.releaseLabel.textContent = config.release;
     shell.openPath(content.system.defaultOpen, false);
 
-    ui.print(`openroot.tech Release 0.1.9
+    ui.print(`openroot.tech Release 0.2.0-prod-prep
 
 GitHub Pages workflow added.
 Terminal interaction rebuilt as a real transcript.

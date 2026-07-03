@@ -12,6 +12,7 @@ window.OpenRootUI = (() => {
     input: null,
     pathLabel: null,
     treeView: $("treeView"),
+    releaseLabel: $("releaseLabel"),
     contentTitle: $("contentTitle"),
     contentCard: $("contentCard"),
     clock: $("clock"),

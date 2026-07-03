@@ -1,0 +1,13 @@
+{
+  "name": "openroot-tech",
+  "version": "0.2.0-prod-prep",
+  "private": true,
+  "description": "OpenRoot OS static portfolio for openroot.tech",
+  "scripts": {
+    "validate:js": "find js -name \"*.js\" -print0 | xargs -0 -n1 node --check",
+    "validate:site": "node scripts/validate-site.js",
+    "build:content": "node scripts/build-content.js",
+    "predeploy": "npm run validate:js && npm run validate:site"
+  },
+  "devDependencies": {}
+}

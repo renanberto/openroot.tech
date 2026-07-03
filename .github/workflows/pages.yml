@@ -26,9 +26,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate JavaScript
-        run: |
-          find js -name "*.js" -print0 | xargs -0 -n1 node --check
+      - name: Validate static site
+        run: npm run predeploy
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

@@ -1,8 +1,8 @@
 var OPENROOT_CONTENT = {
   "system": {
     "name": "openroot.tech",
-    "version": "Release 0.1.9",
-    "edition": "OpenRoot OS Release 0.1.9",
+    "version": "Release 0.2.0-prod-prep",
+    "edition": "OpenRoot OS Release 0.2.0-prod-prep",
     "defaultCwd": "/home/visitor",
     "defaultOpen": "/etc/bio.md"
   },
@@ -10,7 +10,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/home/visitor/README.md",
       "title": "Welcome",
-      "body": "# Welcome to openroot.tech\n\nThis is Release 0.1.9.\n\nThe initial screen now opens the bio.\n\nTry:\n\n`cat /etc/bio.md`\n`cd /usr/projects`\n`cat /usr/projects/waf/README.md`\n`themes`\n`nonroot`"
+      "body": "# Welcome to openroot.tech\n\nThis is Release 0.2.0-prod-prep.\n\nThe initial screen now opens the bio.\n\nTry:\n\n`cat /etc/bio.md`\n`cd /usr/projects`\n`cat /usr/projects/waf/README.md`\n`themes`\n`nonroot`"
     },
     {
       "path": "/etc/bio.md",
@@ -25,7 +25,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/etc/openroot.json",
       "title": "OpenRoot Config",
-      "body": "{\n  \"name\": \"openroot.tech\",\n  \"version\": \"Release 0.1.9\",\n  \"architecture\": \"service-aware-plugin-terminal-os\"\n}"
+      "body": "{\n  \"name\": \"openroot.tech\",\n  \"version\": \"Release 0.2.0-prod-prep\",\n  \"architecture\": \"service-aware-plugin-terminal-os\"\n}"
     },
     {
       "path": "/etc/themes.json",
@@ -100,7 +100,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/var/log/releases.log",
       "title": "Release Log",
-      "body": "# /var/log/releases.log\n\nRelease 0.1.9  Terminal flow, autocomplete, bio home\nRelease 0.1.9  Sidebar and terminal box fixes\nRelease 0.1.9  Curated sidebar tree and portfolio bio layer\nRelease 0.1.9    Naming, tree fix, ASCII, SSH and full themes"
+      "body": "# /var/log/releases.log\n\nRelease 0.2.0-prod-prep  Terminal flow, autocomplete, bio home\nRelease 0.2.0-prod-prep  Sidebar and terminal box fixes\nRelease 0.2.0-prod-prep  Curated sidebar tree and portfolio bio layer\nRelease 0.2.0-prod-prep    Naming, tree fix, ASCII, SSH and full themes"
     },
     {
       "path": "/var/log/journal.log",
@@ -115,7 +115,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/proc/status",
       "title": "System Status",
-      "body": "# /proc/status\n\nsystem: openroot.tech\nversion: Release 0.1.9\nstate: online"
+      "body": "# /proc/status\n\nsystem: openroot.tech\nversion: Release 0.2.0-prod-prep\nstate: online"
     },
     {
       "path": "/proc/github",
@@ -171,10 +171,10 @@ var OPENROOT_CONTENT = {
   "git": {
     "branch": "main",
     "commits": [
-      "r015fix Release 0.1.9 terminal autocomplete bio home",
-      "r014fix Release 0.1.9 sidebar terminal fixes",
-      "r011fix Release 0.1.9 sidebar bio portfolio layer",
-      "r01e001 Release 0.1.9 naming tree ascii ssh themes"
+      "r015fix Release 0.2.0-prod-prep terminal autocomplete bio home",
+      "r014fix Release 0.2.0-prod-prep sidebar terminal fixes",
+      "r011fix Release 0.2.0-prod-prep sidebar bio portfolio layer",
+      "r01e001 Release 0.2.0-prod-prep naming tree ascii ssh themes"
     ]
   },
   "fortunes": [

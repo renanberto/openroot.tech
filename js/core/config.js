@@ -1,4 +1,5 @@
 window.OpenRootConfig = {
+  release: "Release 0.2.0-prod-prep",
   storagePrefix: "openroot.release01",
   startedAt: Date.now(),
   themes: [
@@ -18,7 +19,7 @@ window.OpenRootConfig = {
   ],
   bootLines: [
     { text: "bootloader: openroot.os", hold: 240 },
-    { text: "loading Release 0.1.9", hold: 330 },
+    { text: "loading Release 0.2.0-prod-prep", hold: 330 },
     { text: "mounting compact filesystem tree", hold: 360 },
     { text: "registering themes", hold: 340 },
     { text: "welcome to openroot.tech", hold: 460 }
