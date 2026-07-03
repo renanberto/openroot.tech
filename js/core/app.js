@@ -31,7 +31,7 @@
         title: "Start",
         items: [
           { label: "Bio", path: "/etc/bio.md", hint: "Human portfolio intro" },
-          { label: "Skills", path: "/etc/skills.json", hint: "Technical capabilities" }
+          { label: "Skills", path: "/etc/skills.md", hint: "Technical capabilities" }
         ]
       },
       {
@@ -152,7 +152,7 @@
     if (ui.el.releaseLabel) ui.el.releaseLabel.textContent = config.release;
     shell.openPath(content.system.defaultOpen, false);
 
-    ui.print(`openroot.tech Release 0.2.0-prod-prep
+    ui.print(`openroot.tech Release 0.2.1-content-mobile
 
 GitHub Pages workflow added.
 Terminal interaction rebuilt as a real transcript.

@@ -36,6 +36,7 @@ if (!content || !Array.isArray(content.files)) {
 
 const requiredPaths = [
   "/etc/bio.md",
+  "/etc/skills.md",
   "/etc/openroot.json",
   "/usr/projects/README.md",
   "/dev/contact"

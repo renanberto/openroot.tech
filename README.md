@@ -1,10 +1,10 @@
-# Release 0.2.0-prod-prep - openroot.tech
+# Release 0.2.1-content-mobile - openroot.tech
 
-Patch release after Release 0.2.0-prod-prep.
+Patch release after Release 0.2.1-content-mobile.
 
 ## Changes
 
-1. Renamed product label from `PROD` to `Release 0.2.0-prod-prep`
+1. Renamed product label from `PROD` to `Release 0.2.1-content-mobile`
 2. Fixed the left filesystem panel:
    - sidebar now shows a curated navigation map
    - it no longer dumps the entire technical filesystem
@@ -52,7 +52,7 @@ nonroot
 ```
 
 
-## Release 0.2.0-prod-prep fix
+## Release 0.2.1-content-mobile fix
 
 Fixed local boot error:
 
@@ -70,7 +70,7 @@ window.OPENROOT_CONTENT
 `js/core/app.js` also validates content loading before booting.
 
 
-## Release 0.2.0-prod-prep validation/fix
+## Release 0.2.1-content-mobile validation/fix
 
 Fixed after full package inspection:
 
@@ -80,7 +80,7 @@ Fixed after full package inspection:
 - JavaScript files were syntax-checked with `node --check`.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 - Terminal input now stays at the top of the lower terminal panel.
 - Command results appear below the typed command, top-to-bottom.
@@ -89,7 +89,7 @@ Fixed after full package inspection:
 - Bio includes a profile image placeholder component.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 - Terminal input no longer looks fixed/pinned.
 - Nonroot mode now shows the same profile photo placeholder.
@@ -97,7 +97,7 @@ Fixed after full package inspection:
 - `ssh openroot.tech` triggers a fake visual intrusion alert.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 Terminal UX polish:
 
@@ -107,7 +107,7 @@ Terminal UX polish:
 - Top Nonroot button was rebuilt as a compact red rescue pill without breaking the header.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 UX-focused release:
 
@@ -117,7 +117,7 @@ UX-focused release:
 - Terminal scroll container now scrolls the whole terminal content naturally.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 GitHub Pages and terminal stability release:
 
@@ -134,7 +134,7 @@ GitHub Pages and terminal stability release:
 - Header buttons now submit commands through the active prompt path.
 
 
-## Release 0.2.0-prod-prep
+## Release 0.2.1-content-mobile
 
 Production prep for openroot.tech:
 
@@ -152,3 +152,32 @@ Production prep for openroot.tech:
   - Keep `main` as the deployed branch.
   - Use `Release 0.2.x` for polish and content updates.
   - Move to `Release 1.0.0` once final bio, links, images and project summaries are complete.
+
+
+## Release 0.2.1-content-mobile
+
+Content and mobile pass:
+
+- Reworked `/etc/skills.json` into `/etc/skills.md`.
+- Skills are now human-readable and structured by engineering area.
+- Added modern AI engineering context:
+  - LLM-assisted workflows
+  - Ollama
+  - LiteLLM
+  - model routing
+  - RAG concepts
+  - AI agents for repository and operational workflows
+- Rewrote project README files to be more human-readable.
+- Improved `/etc/bio.md` as the main portfolio landing file.
+- Added mobile responsiveness pass:
+  - full viewport mobile layout
+  - hidden sidebar on mobile
+  - horizontally scrollable top actions
+  - larger readable content
+  - cleaner nonroot catalog layout
+  - terminal sized for mobile screens
+
+Production note:
+
+The site is already online at `openroot.tech`.
+This release is intended as the next production candidate after final visual review on desktop and phone.

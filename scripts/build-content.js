@@ -43,8 +43,8 @@ if (!contentFiles.find(file => file.path === "/etc/bio.md")) {
 const payload = {
   system: {
     name: "openroot.tech",
-    version: "Release 0.2.0-prod-prep",
-    edition: "OpenRoot OS Release 0.2.0-prod-prep",
+    version: "Release 0.2.1-content-mobile",
+    edition: "OpenRoot OS Release 0.2.1-content-mobile",
     defaultCwd: "/home/visitor",
     defaultOpen: "/etc/bio.md"
   },
@@ -52,6 +52,7 @@ const payload = {
   git: {
     branch: "main",
     commits: [
+      "r021content Release 0.2.1-content-mobile content and mobile pass",
       "r020prep Release 0.2.0 production prep",
       "r019fix Release 0.1.9 github pages and terminal transcript"
     ]

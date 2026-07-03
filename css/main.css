@@ -423,7 +423,7 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
 }
 
 
-/* Release 0.2.0-prod-prep nonroot redesign */
+/* Release 0.2.1-content-mobile nonroot redesign */
 .nonroot {
   width:min(1180px,95vw);
   height:min(880px,94vh);
@@ -698,4 +698,127 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
 
 .edition {
   min-width:max-content;
+}
+
+
+/* Release 0.2.1 mobile responsiveness pass */
+@media (max-width: 760px) {
+  .app-shell {
+    padding:0;
+    min-height:100svh;
+    place-items:stretch;
+  }
+
+  .tui {
+    width:100vw;
+    height:100svh;
+    border:0;
+    grid-template-rows:auto 1fr minmax(220px,34svh) auto;
+  }
+
+  .topbar {
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:10px;
+    align-items:start;
+  }
+
+  .brand {
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .edition {
+    border-left:0;
+    padding-left:0;
+    display:block;
+    width:100%;
+    font-size:.64rem;
+  }
+
+  .clock {
+    display:none;
+  }
+
+  .top-actions {
+    display:flex;
+    width:100%;
+    overflow:auto;
+    padding-bottom:4px;
+  }
+
+  .top-actions > button,
+  .nonroot-rescue {
+    flex:0 0 auto;
+  }
+
+  .workspace {
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+
+  .sidebar {
+    display:none;
+  }
+
+  .content-card {
+    padding:18px;
+  }
+
+  .content-card h1 {
+    font-size:2.25rem;
+  }
+
+  .terminal-panel {
+    min-height:220px;
+  }
+
+  .terminal-output {
+    font-size:.82rem;
+    padding:12px;
+  }
+
+  .command-tips {
+    display:none;
+  }
+
+  .nonroot {
+    width:100vw;
+    height:100svh;
+    padding:0;
+  }
+
+  .nonroot-frame {
+    border:0;
+    box-shadow:none;
+    padding:20px;
+  }
+
+  .nonroot-clean-header h1 {
+    font-size:2.5rem;
+  }
+
+  .nonroot-hero {
+    padding:16px;
+  }
+
+  .catalog-grid {
+    grid-template-columns:1fr;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .tui {
+    width:98vw;
+    height:94vh;
+    grid-template-rows:44px 1fr 260px 58px;
+  }
+
+  .workspace {
+    grid-template-columns:250px 1fr;
+  }
+
+  .top-actions {
+    overflow:auto;
+  }
 }
