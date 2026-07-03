@@ -1,7 +1,7 @@
 {
   "name": "openroot.tech",
   "short_name": "openroot",
-  "description": "Terminal-native portfolio for cloud, Linux and automation.",
+  "description": "OpenRoot OS Release 0.1.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

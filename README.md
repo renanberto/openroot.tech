@@ -1,51 +1,97 @@
-# PROD-5 - openroot.tech
+# Release 0.1.6 - openroot.tech
 
-Terminal-native portfolio with TUI navigation and friendly nonroot mode.
+Patch release after Release 0.1.6.
 
-## Highlights
+## Changes
 
-- TUI layout inspired by terminal tools such as k9s/lazygit
-- Real filesystem-style navigation:
-  - `pwd`
-  - `ls`
-  - `cd projects`
-  - `cat README.md`
-  - `tree`
-- Content panel updates as you navigate
-- Sidebar filesystem tree
-- Friendly nonroot mode for non-technical visitors
-- Tooltip/footer guidance under the terminal
-- Hotkeys:
-  - Ctrl+L clear
-  - Ctrl+C cancel
-  - Tab autocomplete
-  - ArrowUp/Down history
-  - Esc leaves nonroot mode
-- Themes:
-  - `theme white`
-  - `theme green`
-  - `theme amber`
-  - `theme blue`
+1. Renamed product label from `PROD` to `Release 0.1.6`
+2. Fixed the left filesystem panel:
+   - sidebar now shows a curated navigation map
+   - it no longer dumps the entire technical filesystem
+   - full tree remains available via `tree /`
 
-## Test locally
+3. Added a stronger bio/portfolio layer:
+   - `/etc/bio.md`
+   - nonroot now points to the bio first
+   - profile is still available at `/etc/profile`
+4. Added ASCII banner:
+   - `ascii`
+5. Improved SSH command:
+   - `ssh openroot.tech`
+6. Added full theme set:
+   - terminal
+   - matrix
+   - nord
+   - tokyo
+   - dracula
+   - gruvbox
+   - catppuccin
+   - ubuntu
+   - arch
+   - fedora
+   - mac
+   - powershell
+   - solarized
 
-Open `index.html` in your browser.
+## Test
 
-## Publish
+Open `index.html` directly in your browser.
 
-Push everything to GitHub Pages repository root.
+## Suggested commands
 
-## Replace placeholders
+```txt
+cat /etc/bio.md
+ascii
+ssh openroot.tech
+themes
+theme dracula
+theme tokyo
+theme gruvbox
+tree /
+nonroot
+```
 
-Edit `js/app.js`.
 
-Search for:
-- `hello@openroot.tech`
-- `https://github.com/your-user`
-- `https://linkedin.com/in/your-user`
-- `/assets/resume.pdf`
-- project sections inside `FS`
+## Release 0.1.6 fix
 
-## Suggested PROD-6
+Fixed local boot error:
 
-Move filesystem content into `/content/*.json` or Markdown files, then fetch it dynamically.
+```txt
+Uncaught TypeError: can't access property "files", content is undefined
+```
+
+`js/content.generated.js` now exposes content both as:
+
+```js
+var OPENROOT_CONTENT
+window.OPENROOT_CONTENT
+```
+
+`js/core/app.js` also validates content loading before booting.
+
+
+## Release 0.1.6 validation/fix
+
+Fixed after full package inspection:
+
+- Sidebar no longer uses a raw filesystem dump. It now renders readable navigation cards.
+- Full technical tree remains available with `tree /`.
+- Terminal bottom/footer layout now uses auto height and wraps tips instead of breaking the box.
+- JavaScript files were syntax-checked with `node --check`.
+
+
+## Release 0.1.6
+
+- Terminal input now stays at the top of the lower terminal panel.
+- Command results appear below the typed command, top-to-bottom.
+- Autocomplete now includes registered commands, local entries, absolute directories and absolute file paths.
+- Initial screen now opens `/etc/bio.md`.
+- Bio includes a profile image placeholder component.
+
+
+## Release 0.1.6
+
+- Terminal input no longer looks fixed/pinned.
+- Nonroot mode now shows the same profile photo placeholder.
+- Top Nonroot action is red and includes a friendly hint.
+- `ssh openroot.tech` triggers a fake visual intrusion alert.
