@@ -5,7 +5,7 @@ window.OpenRootNavigationPlugin = {
     {
       name: "help",
       description: "Show help.",
-      run: (_, __, ctx) => `OpenRoot OS Release 0.1
+      run: (_, __, ctx) => `OpenRoot OS Release 0.1.9
 
 Try:
 ascii
@@ -67,7 +67,7 @@ ${plugin.commands.map(c => "- " + c).join("\n")}`;
     },
     { name: "aliases", description: "List aliases.", run: (_, __, ctx) => { const entries = Object.entries(ctx.shell.getAliases()); return entries.length ? entries.map(([k, v]) => `${k}='${v}'`).join("\n") : "no aliases defined"; } },
     { name: "unalias", description: "Remove alias.", usage: "unalias p", run: (arg, raw, ctx) => { if (!arg) return "unalias: missing alias name"; ctx.shell.unsetAlias(arg); return `alias removed: ${arg}`; } },
-    { name: "clear", description: "Clear terminal output.", run: (_, __, ctx) => { ctx.ui.el.output.innerHTML = ""; return ""; } },
+    { name: "clear", description: "Clear terminal output.", run: (_, __, ctx) => { ctx.ui.clearTerminal(); return ""; } },
     { name: "github", description: "Open mocked GitHub process file.", run: (_, raw, ctx) => window.OpenRootFilesystemPlugin.commands.find(c => c.name === "cat").run("/proc/github", raw, ctx) },
     { name: "linkedin", description: "Show LinkedIn placeholder.", run: () => "LinkedIn placeholder: https://linkedin.com/in/your-user" },
     { name: "resume", description: "Show resume placeholder.", run: () => "Resume placeholder: /assets/resume.pdf" }

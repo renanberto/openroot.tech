@@ -37,10 +37,6 @@ window.OpenRootShell = (() => {
       return echo ? `opened ${displayPath(full)}` : "";
     }
 
-    function echo(command) {
-      ui.print(`visitor@openroot${displayPath(cwd)}$ ${command}`, "command");
-    }
-
     function saveHistory(command) {
       if (!command.trim()) return;
       history.push(command.trim());
@@ -56,30 +52,36 @@ window.OpenRootShell = (() => {
     }
 
     function submit(raw, pluginManager) {
+      const commandText = raw.trim();
+
       if (reverseSearch) {
         reverseSearch = false;
-        const found = [...history].reverse().find(item => item.toLowerCase().includes(raw.toLowerCase()));
-        ui.el.input.value = found || "";
-        ui.print(`reverse-i-search: ${raw} ${found ? "=> " + found : "=> no match"}`, "dim");
+        const found = [...history].reverse().find(item => item.toLowerCase().includes(commandText.toLowerCase()));
+        if (ui.el.input) ui.el.input.value = found || "";
+        ui.print(`reverse-i-search: ${commandText} ${found ? "=> " + found : "=> no match"}`, "dim");
+        ui.scrollTerminal();
         return;
       }
 
-      echo(raw);
+      ui.freezePrompt(raw);
       saveHistory(raw);
+
       const expanded = expandAlias(raw);
       const result = pluginManager.execute(expanded);
       if (result) ui.print(result);
-      ui.el.input.value = "";
+
+      ui.createPrompt(displayPath(cwd));
+      updatePrompt();
     }
 
     if (!fs.nodeAt(cwd) || fs.nodeAt(cwd).type !== "dir") cwd = "/home/visitor";
-    updatePrompt();
 
     return {
       get cwd() { return cwd; },
       setCwd,
       openPath,
       displayPath,
+      updatePrompt,
       submit,
       setAlias(name, value) {
         aliases[name] = value;

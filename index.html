@@ -6,7 +6,7 @@
   <meta name="description" content="openroot.tech - A static terminal OS for cloud engineering, Linux, automation and infrastructure." />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="openroot.tech" />
-  <meta property="og:description" content="Release 0.1.6 of a service-aware static terminal OS." />
+  <meta property="og:description" content="Release 0.1.9 of a service-aware static terminal OS." />
   <meta property="og:type" content="website" />
   <title>openroot.tech</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -26,7 +26,7 @@
         </svg>
       </div>
       <div class="boot-line"><span class="prompt">&gt;</span><span id="bootText"></span><span class="cursor"></span></div>
-      <p class="boot-subtitle">OpenRoot OS Release 0.1.6</p>
+      <p class="boot-subtitle">OpenRoot OS Release 0.1.9</p>
     </section>
 
     <section class="tui hidden" id="tui" aria-label="openroot.tech terminal operating system">
@@ -40,7 +40,7 @@
           <button type="button" data-shortcut="ascii">ASCII</button>
           <button type="button" data-shortcut="ssh openroot.tech">SSH</button>
           <button type="button" data-shortcut="themes">Themes</button>
-          <div class="nonroot-top-action"><button type="button" data-shortcut="nonroot">Nonroot</button><small>if you are not understanding anything, click here</small></div>
+          <button type="button" class="nonroot-rescue" data-shortcut="nonroot"><span>Nonroot</span><small>if you are not understanding anything, click here</small></button>
         </nav>
         <div class="clock" id="clock">ONLINE</div>
       </header>
@@ -57,16 +57,12 @@
         </section>
       </section>
 
-      <section class="terminal-panel">
-        <form id="commandForm" class="input-line" autocomplete="off">
-          <span class="user">visitor@openroot</span><span id="pathLabel" class="path">:~$</span>
-          <input id="commandInput" type="text" aria-label="Terminal command input" spellcheck="false" autofocus />
-        </form>
+      <section class="terminal-panel" id="terminalPanel">
         <div class="terminal-output" id="output"></div>
       </section>
 
-      <footer class="command-tips" aria-label="Terminal tips">
-        <span>Release 0.1.6: curated filesystem sidebar, bio layer, ASCII, SSH and full themes.</span>
+      <footer class="command-tips"      <footer class="command-tips" aria-label="Terminal tips">
+        <span>Release 0.1.9: curated filesystem sidebar, bio layer, ASCII, SSH and full themes.</span>
         <span>Try <kbd>ascii</kbd>, <kbd>ssh openroot.tech</kbd>, <kbd>themes</kbd>, <kbd>theme dracula</kbd>.</span>
         <span><kbd>tree /</kbd> still prints the complete filesystem in the terminal.</span>
       </footer>
@@ -74,38 +70,75 @@
 
     <section class="nonroot hidden" id="nonroot" aria-label="Simple friendly portfolio view">
       <div class="nonroot-frame">
-        <header class="nonroot-header">
-          <div>
-            <p class="eyebrow">openroot.tech</p>
-            <h1>Guided mode for non-rooters.</h1>
-          </div>
-          <button class="back-button" id="backToTerminal" type="button">Back to terminal</button>
+        <header class="nonroot-clean-header">
+          <button class="back-button" id="backToTerminal" type="button">← Back to terminal</button>
+          <p class="eyebrow">openroot.tech / nonroot</p>
+          <h1>A clean catalog for people who do not speak terminal.</h1>
+          <p class="lead">
+            This is the same OpenRoot OS content, translated into a simple portfolio:
+            bio, skills, projects, notes and contact.
+          </p>
         </header>
 
-        <p class="lead">
-          Same OpenRoot OS content, translated into clean cards.
-          Choose a path below, no commands required.
-        </p>
-
-        <section class="nonroot-profile" aria-label="Profile preview">
+        <section class="nonroot-hero">
           <div class="bio-photo" role="img" aria-label="Profile photo placeholder"></div>
           <div>
+            <p class="bio-kicker">portfolio identity</p>
             <h2>Renan Berto</h2>
-            <p>DevOps Engineer focused on cloud infrastructure, Linux systems, automation, production readiness and security-minded operations.</p>
+            <p>
+              DevOps Engineer focused on cloud infrastructure, Linux systems, automation,
+              production readiness and security-minded operations.
+            </p>
+            <div class="nonroot-actions">
+              <button type="button" data-open="/etc/bio.md">Read bio</button>
+              <button type="button" data-open="/usr/projects">View projects</button>
+              <button type="button" data-open="/dev/contact">Contact</button>
+            </div>
           </div>
         </section>
 
-        <div class="quick-grid">
-          <button type="button" data-open="/etc/bio.md"><span>01</span><strong>Bio</strong><small>Human-readable portfolio profile</small></button>
-          <button type="button" data-open="/etc/skills.json"><span>02</span><strong>Skills</strong><small>Cloud, Linux, security and automation</small></button>
-          <button type="button" data-open="/usr/projects"><span>03</span><strong>Projects</strong><small>Systems, platforms and cases</small></button>
-          <button type="button" data-open="/etc/themes.json"><span>04</span><strong>Themes</strong><small>Terminal, Tokyo, Dracula and more</small></button>
-          <button type="button" data-open="/var/log/releases.log"><span>05</span><strong>Release log</strong><small>Release 0.1.6 history</small></button>
-          <button type="button" data-open="/dev/contact"><span>06</span><strong>Contact</strong><small>Links and placeholders</small></button>
-        </div>
+        <section class="catalog-section">
+          <div>
+            <p class="eyebrow">Catalog</p>
+            <h2>Choose where to start</h2>
+          </div>
+
+          <div class="catalog-grid">
+            <button type="button" data-open="/etc/bio.md">
+              <span>01</span>
+              <strong>Bio</strong>
+              <small>Who I am, what I build, and how I think about engineering.</small>
+            </button>
+            <button type="button" data-open="/etc/skills.json">
+              <span>02</span>
+              <strong>Skills</strong>
+              <small>Cloud, Kubernetes, Linux, automation, security and observability.</small>
+            </button>
+            <button type="button" data-open="/usr/projects">
+              <span>03</span>
+              <strong>Projects</strong>
+              <small>Selected systems, platforms and architecture cases.</small>
+            </button>
+            <button type="button" data-open="/usr/lab">
+              <span>04</span>
+              <strong>Lab</strong>
+              <small>Experiments, drafts and technical notes.</small>
+            </button>
+            <button type="button" data-open="/var/log/releases.log">
+              <span>05</span>
+              <strong>Timeline</strong>
+              <small>Release log and evolution of this portfolio OS.</small>
+            </button>
+            <button type="button" data-open="/dev/contact">
+              <span>06</span>
+              <strong>Contact</strong>
+              <small>Email, GitHub, LinkedIn and resume placeholder.</small>
+            </button>
+          </div>
+        </section>
 
         <article class="simple-output" id="simpleOutput">
-          Choose a card above. The shell keeps running underneath.
+          Pick a card above. I will show the content here without requiring terminal commands.
         </article>
       </div>
     </section>

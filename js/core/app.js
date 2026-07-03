@@ -47,6 +47,11 @@
     }
   }
 
+  function bindCurrentInput() {
+    if (!ui.el.input) return;
+    ui.el.input.addEventListener("keydown", handleInputKeydown);
+  }
+
   async function boot() {
     for (let i = 0; i < config.bootLines.length; i++) {
       await typeBootLine(config.bootLines[i].text);
@@ -60,33 +65,38 @@
     await sleep(260);
     ui.el.boot.classList.add("hidden");
     ui.el.tui.classList.remove("hidden");
-    ui.el.treeView.innerHTML = fs.sidebarTreeHTML ? fs.sidebarTreeHTML() : fs.sidebarTree();
+    ui.el.treeView.textContent = fs.sidebarTree();
     shell.openPath(content.system.defaultOpen, false);
-    ui.print(`openroot.tech Release 0.1.6
 
-Filesystem sidebar fully rebuilt as readable navigation cards.
-ASCII and SSH ready.
-Full theme engine active.
+    ui.print(`openroot.tech Release 0.1.9
 
+GitHub Pages workflow added.
+Terminal interaction rebuilt as a real transcript.
 Type "help" to list commands.
-Try: cat /etc/bio.md
-Try: ascii
-Try: ssh openroot.tech
-Try: themes
-Try: theme dracula
 
 `, "dim");
-    ui.el.input.focus();
+
+    ui.createPrompt(shell.displayPath(shell.cwd));
+    shell.updatePrompt();
+    bindCurrentInput();
   }
 
-  ui.el.form.addEventListener("submit", event => {
-    event.preventDefault();
-    shell.submit(ui.el.input.value, pluginManager);
-  });
+  function submitCurrent() {
+    if (!ui.el.input) return;
+    const value = ui.el.input.value;
+    shell.submit(value, pluginManager);
+    bindCurrentInput();
+  }
 
-  ui.el.input.addEventListener("keydown", event => {
+  function handleInputKeydown(event) {
     const history = shell.getHistory();
     let historyIndex = shell.getHistoryIndex();
+
+    if (event.key === "Enter") {
+      event.preventDefault();
+      submitCurrent();
+      return;
+    }
 
     if (event.key === "ArrowUp") {
       event.preventDefault();
@@ -116,45 +126,61 @@ Try: theme dracula
       if (matches.length === 1) ui.el.input.value = matches[0];
       else if (matches.length > 1) ui.print(matches.join("  "), "dim");
     }
-  });
+  }
 
   document.addEventListener("keydown", event => {
     if (event.ctrlKey && event.key.toLowerCase() === "l") {
       event.preventDefault();
-      ui.el.output.innerHTML = "";
-      ui.el.input.value = "";
-      ui.el.input.focus();
+      ui.clearTerminal();
+      ui.createPrompt(shell.displayPath(shell.cwd));
+      shell.updatePrompt();
+      bindCurrentInput();
     }
 
     if (event.ctrlKey && event.key.toLowerCase() === "c") {
       event.preventDefault();
       if (!ui.el.tui.classList.contains("hidden")) {
+        if (ui.el.input) ui.el.input.value = "";
         ui.print("^C", "command");
-        ui.el.input.value = "";
         shell.setReverseSearch(false);
-        ui.el.input.focus();
+        ui.createPrompt(shell.displayPath(shell.cwd));
+        shell.updatePrompt();
+        bindCurrentInput();
       }
     }
 
     if (event.ctrlKey && event.key.toLowerCase() === "r") {
       event.preventDefault();
       shell.setReverseSearch(true);
-      ui.el.input.value = "";
-      ui.el.input.placeholder = "reverse-i-search";
-      ui.print("(reverse-i-search) Type a term and press Enter", "dim");
-      ui.el.input.focus();
-      setTimeout(() => ui.el.input.placeholder = "", 3000);
+      if (ui.el.input) {
+        ui.el.input.value = "";
+        ui.el.input.placeholder = "reverse-i-search";
+        ui.print("(reverse-i-search) Type a term and press Enter", "dim");
+        ui.el.input.focus();
+        setTimeout(() => {
+          if (ui.el.input) ui.el.input.placeholder = "";
+        }, 3000);
+      }
     }
 
     if (event.key === "Escape" && !ui.el.nonroot.classList.contains("hidden")) ui.closeNonroot();
   });
 
+  ui.el.terminalPanel.addEventListener("click", () => {
+    if (ui.el.input) ui.el.input.focus();
+  });
+
   document.addEventListener("click", () => {
-    if (!ui.el.tui.classList.contains("hidden")) ui.el.input.focus();
+    if (!ui.el.tui.classList.contains("hidden") && ui.el.input) ui.el.input.focus();
   });
 
   document.querySelectorAll("[data-shortcut]").forEach(btn => {
-    btn.addEventListener("click", () => shell.submit(btn.dataset.shortcut, pluginManager));
+    btn.addEventListener("click", event => {
+      event.stopPropagation();
+      if (!ui.el.input) return;
+      ui.el.input.value = btn.dataset.shortcut;
+      submitCurrent();
+    });
   });
 
   document.querySelectorAll("[data-open]").forEach(btn => {
