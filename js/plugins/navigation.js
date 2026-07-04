@@ -5,7 +5,7 @@ window.OpenRootNavigationPlugin = {
     {
       name: "help",
       description: "Show help.",
-      run: (_, __, ctx) => `OpenRoot OS Release 0.2.2-mobile-nonroot
+      run: (_, __, ctx) => `OpenRoot OS Release 0.2.3-content-polish
 
 Try:
 ascii
@@ -27,7 +27,7 @@ Services:
 services, systemctl, journalctl
 
 Navigation:
-nonroot, help, history, alias, clear`
+nonroot, recruiter, read <topic>, help, history, alias, clear`
     },
     { name: "plugins", description: "List installed plugins.", run: (_, __, ctx) => ctx.pluginManager.listPlugins().map(p => `${p.name.padEnd(12)} ${p.commands.join(", ")}`).join("\n") },
     {
@@ -72,5 +72,5 @@ ${plugin.commands.map(c => "- " + c).join("\n")}`;
     { name: "linkedin", description: "Show LinkedIn placeholder.", run: () => "LinkedIn placeholder: https://www.linkedin.com/in/renan-berto" },
     { name: "resume", description: "Show resume placeholder.", run: () => "Resume: assets/resume.pdf" }
   ],
-  completions() { return ["help", "plugins", "plugin filesystem", "plugin git", "plugin system", "plugin services", "plugin fun", "plugin navigation", "commands", "nonroot", "simple", "whoami", "history", "alias ", "aliases", "unalias ", "clear", "github", "linkedin", "resume"]; }
+  completions() { return ["help", "plugins", "plugin filesystem", "plugin git", "plugin system", "plugin services", "plugin fun", "plugin navigation", "commands", "nonroot", "simple", "whoami", "history", "alias ", "aliases", "unalias ", "clear", "github", "linkedin", "resume", "recruiter", "read bio", "read skills", "read projects", "read waf", "read certs", "read bemod", "read corly", "read hermes", "read jira", "read contact"]; }
 };

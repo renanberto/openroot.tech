@@ -1,8 +1,8 @@
 {
   "name": "openroot-tech",
-  "version": "0.2.2-mobile-nonroot",
+  "version": "0.2.3-content-polish",
   "private": true,
-  "description": "OpenRoot OS static portfolio for openroot.tech, with human-readable content and mobile responsiveness",
+  "description": "OpenRoot OS static portfolio with polished markdown, case studies and recruiter shortcuts",
   "scripts": {
     "validate:js": "find js -name \"*.js\" -print0 | xargs -0 -n1 node --check",
     "validate:site": "node scripts/validate-site.js",

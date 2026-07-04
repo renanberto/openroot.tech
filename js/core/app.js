@@ -157,7 +157,7 @@
     if (ui.el.releaseLabel) ui.el.releaseLabel.textContent = config.release;
     shell.openPath(content.system.defaultOpen, false);
 
-    ui.print(`openroot.tech Release 0.2.2-mobile-nonroot
+    ui.print(`openroot.tech Release 0.2.3-content-polish
 
 GitHub Pages workflow added.
 Terminal interaction rebuilt as a real transcript.

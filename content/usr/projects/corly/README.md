@@ -1,30 +1,40 @@
 # Corly
 
-Corly is a CRM and workflow platform concept for real estate agencies, brokers and banking correspondents.
+::status[product experiment]
+::stack[Python · FastAPI · React · MySQL · Docker]
 
 ## Problem
 
-Real estate and financing workflows often spread information across spreadsheets, chats, email and disconnected tools.
-That makes visibility, ownership, deadlines and follow-up harder than they should be.
+Real estate and financing workflows often depend on scattered spreadsheets, chats, emails and disconnected systems.
+That makes ownership, deadlines, proposals, contracts and commissions harder to track.
 
-## What it covers
+## Solution
 
-- lead and customer registration
-- proposal and contract stages
-- commission tracking
-- credit consultation flows
-- simulation and financing workflows
-- role-based access for different business profiles
+Corly models the workflow as a CRM platform for agencies, brokers and banking correspondents.
+
+:::grid
+:::card[Workflow]
+Lead, proposal, contract and commission stages.
+:::
+
+:::card[Roles]
+Different business profiles with role-based visibility.
+:::
+
+:::card[Financing]
+Credit checks, simulations and proposal flows.
+:::
+:::
 
 ## Stack
 
-- Python
-- FastAPI
-- SQLAlchemy
-- MySQL
-- React-ready frontend
-- Docker
+::badge[Python]
+::badge[FastAPI]
+::badge[SQLAlchemy]
+::badge[MySQL]
+::badge[React]
+::badge[Docker]
 
-## What it demonstrates
+## Why it matters
 
-Corly demonstrates product thinking applied to operational workflows: not just building forms, but modeling the stages, roles and dependencies that make the business move.
+Corly shows product thinking applied to operations: not just screens and forms, but workflow, ownership, visibility and repeatability.

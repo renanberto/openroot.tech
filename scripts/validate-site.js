@@ -39,7 +39,8 @@ const requiredPaths = [
   "/etc/skills.md",
   "/etc/openroot.json",
   "/usr/projects/README.md",
-  "/dev/contact"
+  "/dev/contact",
+  "/usr/recruiter.md"
 ];
 
 for (const required of requiredPaths) {

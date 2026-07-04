@@ -1,25 +1,26 @@
 # Contact
 
-You can reach me through the following channels:
+::status[available endpoints]
+::stack[Email · GitHub · LinkedIn]
 
 ## Email
 
-renanbertoo@gmail.com
+::link[renanbertoo@gmail.com|mailto:renanbertoo@gmail.com]
 
 ## GitHub
 
-github.com/renanberto
+::link[github.com/renanberto|https://github.com/renanberto]
 
 ## LinkedIn
 
-www.linkedin.com/in/renan-berto
+::link[linkedin.com/in/renan-berto|https://www.linkedin.com/in/renan-berto]
 
-## Resume
+## Suggested path
 
-The resume file can be added later as:
+`recruiter`
 
-`assets/resume.pdf`
+`read bio`
 
-Once the PDF is in place, this command can point to it:
+`read skills`
 
-`resume`
+`read projects`

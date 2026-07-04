@@ -1,10 +1,10 @@
-# Release 0.2.2-mobile-nonroot - openroot.tech
+# Release 0.2.3-content-polish - openroot.tech
 
-Patch release after Release 0.2.2-mobile-nonroot.
+Patch release after Release 0.2.3-content-polish.
 
 ## Changes
 
-1. Renamed product label from `PROD` to `Release 0.2.2-mobile-nonroot`
+1. Renamed product label from `PROD` to `Release 0.2.3-content-polish`
 2. Fixed the left filesystem panel:
    - sidebar now shows a curated navigation map
    - it no longer dumps the entire technical filesystem
@@ -52,7 +52,7 @@ nonroot
 ```
 
 
-## Release 0.2.2-mobile-nonroot fix
+## Release 0.2.3-content-polish fix
 
 Fixed local boot error:
 
@@ -70,7 +70,7 @@ window.OPENROOT_CONTENT
 `js/core/app.js` also validates content loading before booting.
 
 
-## Release 0.2.2-mobile-nonroot validation/fix
+## Release 0.2.3-content-polish validation/fix
 
 Fixed after full package inspection:
 
@@ -80,7 +80,7 @@ Fixed after full package inspection:
 - JavaScript files were syntax-checked with `node --check`.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 - Terminal input now stays at the top of the lower terminal panel.
 - Command results appear below the typed command, top-to-bottom.
@@ -89,7 +89,7 @@ Fixed after full package inspection:
 - Bio includes a profile image placeholder component.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 - Terminal input no longer looks fixed/pinned.
 - Nonroot mode now shows the same profile photo placeholder.
@@ -97,7 +97,7 @@ Fixed after full package inspection:
 - `ssh openroot.tech` triggers a fake visual intrusion alert.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 Terminal UX polish:
 
@@ -107,7 +107,7 @@ Terminal UX polish:
 - Top Nonroot button was rebuilt as a compact red rescue pill without breaking the header.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 UX-focused release:
 
@@ -117,7 +117,7 @@ UX-focused release:
 - Terminal scroll container now scrolls the whole terminal content naturally.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 GitHub Pages and terminal stability release:
 
@@ -134,7 +134,7 @@ GitHub Pages and terminal stability release:
 - Header buttons now submit commands through the active prompt path.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 Production prep for openroot.tech:
 
@@ -154,7 +154,7 @@ Production prep for openroot.tech:
   - Move to `Release 1.0.0` once final bio, links, images and project summaries are complete.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 Content and mobile pass:
 
@@ -183,7 +183,7 @@ The site is already online at `openroot.tech`.
 This release is intended as the next production candidate after final visual review on desktop and phone.
 
 
-## Release 0.2.2-mobile-nonroot
+## Release 0.2.3-content-polish
 
 Changes:
 
@@ -194,3 +194,32 @@ Changes:
   - Email: renanbertoo@gmail.com
   - GitHub: github.com/renanberto
   - LinkedIn: www.linkedin.com/in/renan-berto
+
+
+## Release 0.2.3-content-polish
+
+Content polish release:
+
+- MDs are now more visually expressive.
+- Added custom markdown-like components:
+  - `::badge[]`
+  - `::status[]`
+  - `::stack[]`
+  - `:::grid`
+  - `:::card[]`
+  - `:::callout[]`
+  - `::link[]`
+- Skills page now uses colored categories and human-readable structure.
+- Projects are now formatted as case studies.
+- Added command: `recruiter`
+- Added command: `read <topic>`
+  - `read bio`
+  - `read skills`
+  - `read projects`
+  - `read waf`
+  - `read certs`
+  - `read bemod`
+  - `read corly`
+  - `read hermes`
+  - `read jira`
+  - `read contact`

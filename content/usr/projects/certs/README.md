@@ -1,30 +1,40 @@
 # AWS Certificate Validator
 
-A multi-account certificate validation workflow for AWS environments.
+::status[operations automation]
+::stack[AWS Lambda · SSM · DynamoDB · SNS · IAM]
 
 ## Problem
 
-Certificates expire quietly until they do not.
-In distributed environments, certificates can exist in files, keystores, instances, external endpoints and different AWS accounts.
+Certificates can expire quietly across instances, files, keystores, endpoints and accounts.
+When they finally fail, the blast radius is rarely polite.
 
-## What it does
+## Solution
 
-- validates internal certificates
-- validates external TLS endpoints
-- validates keystore-style certificate sources
-- stores validation output
-- notifies before expiration
-- supports multi-account execution patterns
+A multi-account AWS workflow validates certificate sources, stores results and alerts before expiration.
+
+:::grid
+:::card[Internal]
+Validate certificates stored on instances or paths.
+:::
+
+:::card[External]
+Validate public or private TLS endpoints.
+:::
+
+:::card[Keystores]
+Support keystore-oriented certificate checks.
+:::
+:::
 
 ## Stack
 
-- AWS Lambda
-- SSM
-- DynamoDB
-- SNS
-- IAM AssumeRole
-- shell and certificate tooling
+::badge[Lambda]
+::badge[SSM]
+::badge[DynamoDB]
+::badge[SNS]
+::badge[AssumeRole]
+::badge[Shell]
 
-## What it demonstrates
+## Why it matters
 
-This project demonstrates operational automation, certificate hygiene, AWS orchestration and alerting around a real production risk.
+This is production hygiene: reduce hidden certificate risk, create visibility and automate an operational pain point.

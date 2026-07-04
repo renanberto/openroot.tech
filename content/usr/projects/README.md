@@ -1,48 +1,54 @@
 # Projects
 
-This directory is a catalog of selected technical work and product experiments.
+::status[case-study catalog]
+::stack[Architecture · Automation · Cloud · AI · Security]
 
-Each project page follows the same idea:
+Each project is written as a short case study: problem, solution, stack and why it matters.
 
-- what the project is
-- what problem it solves
-- which technologies are involved
-- what kind of engineering thinking it demonstrates
+## Available case studies
 
-## Available projects
-
-### Corly
-
+:::grid
+:::card[Corly]
 CRM and workflow platform for real estate, brokers and banking correspondents.
 
-`cat /usr/projects/corly/README.md`
+`read corly`
+:::
 
-### Bemod
+:::card[Bemod]
+Multi-model AI router experiment for local and cloud LLM workflows.
 
-Multi-model AI router experiment for local and cloud LLMs.
+`read bemod`
+:::
 
-`cat /usr/projects/bemod/README.md`
+:::card[AWS Certificate Validator]
+Multi-account certificate validation and alerting workflow.
 
-### AWS Certificate Validator
+`read certs`
+:::
 
-Multi-account certificate validation workflow using AWS automation.
-
-`cat /usr/projects/certs/README.md`
-
-### AWS WAF Security Cases
-
+:::card[AWS WAF Security Cases]
 Credential stuffing mitigation and edge protection patterns.
 
-`cat /usr/projects/waf/README.md`
+`read waf`
+:::
 
-### Hermes / Remote Management
+:::card[Hermes]
+Remote management and get-data command orchestration architecture.
 
-Command orchestration and device operation architecture.
+`read hermes`
+:::
 
-`cat /usr/projects/hermes/README.md`
+:::card[Jira + Confluence AI]
+AI-assisted support automation grounded in documentation and evidence.
 
-### Jira + Confluence AI Integration
+`read jira`
+:::
+:::
 
-Support automation concept using knowledge retrieval and evidence.
+## Fast path
 
-`cat /usr/projects/jira/README.md`
+`recruiter`
+
+`read skills`
+
+`read contact`

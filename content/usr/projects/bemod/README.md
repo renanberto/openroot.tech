@@ -1,30 +1,40 @@
 # Bemod
 
-Bemod is a multi-model AI routing experiment.
+::status[AI infrastructure experiment]
+::stack[Docker · FastAPI · LiteLLM · Ollama · Local LLMs]
 
 ## Problem
 
-Different tasks need different models.
-Some jobs are better handled locally, some need stronger cloud models, and some need routing based on cost, speed or context.
+Not every AI task needs the same model.
+Some tasks need speed, some need cost control, some need stronger reasoning and some can run locally.
 
-## What it explores
+## Solution
 
-- local models with Ollama
-- LiteLLM as a provider abstraction layer
-- OpenAI-ready and Anthropic-ready model paths
-- routing by task type
-- Dockerized local AI infrastructure
-- foundations for agents and tool runtime
+Bemod explores a routing layer between user intent and model execution.
+
+:::grid
+:::card[Local-first]
+Use local models through Ollama when possible.
+:::
+
+:::card[Provider abstraction]
+Use LiteLLM to normalize different model providers.
+:::
+
+:::card[Routing]
+Choose model paths based on task type and context.
+:::
+:::
 
 ## Stack
 
-- Docker
-- FastAPI
-- LiteLLM
-- Ollama
-- local LLMs
-- cloud model integration-ready
+::badge[Ollama]
+::badge[LiteLLM]
+::badge[FastAPI]
+::badge[Docker]
+::badge[OpenAI-ready]
+::badge[Anthropic-ready]
 
-## What it demonstrates
+## Why it matters
 
-Bemod shows interest in AI infrastructure beyond prompt usage: model routing, runtime design, local/cloud tradeoffs and practical developer workflows.
+Bemod demonstrates AI engineering beyond prompts: routing, runtime, local/cloud tradeoffs and developer workflow design.

@@ -1,92 +1,132 @@
 # Skills
 
-This is a human-readable map of the technical areas I work with.
-The point is not to list buzzwords, but to show the operating range: infrastructure, automation, platforms, security, observability and AI-enabled engineering.
+::status[human-readable skills map]
+::stack[Cloud · Kubernetes · DevOps · Security · Observability · AI]
+
+This page is organized by engineering area instead of being a raw JSON dump.
 
 ## Cloud and AWS
 
-I work across AWS environments with a focus on production operations, reliability and security.
+::badge[AWS]
+::badge[EKS]
+::badge[Lambda]
+::badge[CloudFront]
+::badge[WAF]
+::badge[IAM]
+::badge[DynamoDB]
+::badge[SSM]
 
-- AWS account structure, IAM and cross-account access
-- EKS and Kubernetes workloads
+:::callout[green]
+I work with AWS from the operational side: real workloads, permissions, logs, scaling, edge protection, automation and production behavior.
+:::
+
+- Multi-account AWS environments
+- IAM, AssumeRole and access boundaries
+- EKS and Kubernetes workload operations
 - Lambda and event-driven automation
-- CloudFront, WAF and edge protection
+- CloudFront and AWS WAF protection
 - DynamoDB, SSM, SNS and operational workflows
-- CloudWatch, logs, metrics and alarm design
-- Infrastructure patterns for multi-account environments
+- CloudWatch metrics, logs and alarms
 
-## Kubernetes, containers and platform engineering
+## Kubernetes and platform engineering
 
-I am comfortable with the operational side of container platforms: scaling, deployment behavior, runtime issues and production readiness.
+::badge[Kubernetes]
+::badge[Docker]
+::badge[Helm]
+::badge[HPA]
+::badge[Linux]
 
-- Kubernetes and EKS operations
-- Deployments, Services, Ingress and workload debugging
-- HPA, requests, limits and scaling behavior
-- Helm charts and environment-specific configuration
-- Docker and local development environments
-- Capacity, node behavior and production troubleshooting
+:::grid
+:::card[Runtime]
+Pods, deployments, services, ingress, probes, requests, limits and workload troubleshooting.
+:::
 
-## DevOps, automation and delivery
+:::card[Scaling]
+HPA behavior, node capacity, rollout strategy, production traffic and resource tuning.
+:::
 
-My focus is making engineering work repeatable, observable and safer to operate.
+:::card[Delivery]
+Helm charts, environment configuration, Dockerized stacks and repeatable deployment patterns.
+:::
+:::
 
-- CI/CD pipelines and release workflows
-- GitHub Actions and automation routines
-- Shell scripting and Linux-based tooling
-- Python automation and operational scripts
-- Environment promotion and deployment hygiene
-- Runbooks, rollback thinking and operational documentation
+## DevOps and automation
+
+::badge[GitHub Actions]
+::badge[CI/CD]
+::badge[Bash]
+::badge[Python]
+::badge[Runbooks]
+
+- Pipeline design and release workflows
+- Shell scripting and Linux automation
+- Python tools for operational workflows
+- Repeatable deployment and validation routines
+- Documentation that helps during incidents, not only during demos
 
 ## Security and edge protection
 
-I work with practical security controls that reduce risk without turning delivery into concrete.
+::badge[AWS WAF]
+::badge[Bot Control]
+::badge[CAPTCHA]
+::badge[Certificates]
+::badge[IAM]
 
-- AWS WAF rules, Bot Control and CAPTCHA flows
-- Credential stuffing mitigation patterns
+:::callout[yellow]
+Security work is usually a balance between blocking abuse, preserving legitimate users and keeping enough telemetry to know the difference.
+:::
+
+- Credential stuffing mitigation
 - User-agent and traffic behavior analysis
-- IAM least privilege and assume-role patterns
-- Certificate validation and expiration monitoring
-- Security visibility through logs and metrics
+- WAF rules and CloudFront edge controls
+- Certificate validation and expiration alerting
+- IAM least privilege and cross-account access patterns
 
 ## Observability and production operations
 
-I care about knowing what is happening before a system starts screaming in ancient dialects.
+::badge[CloudWatch]
+::badge[Grafana]
+::badge[Container Insights]
+::badge[Logs]
+::badge[Metrics]
 
-- CloudWatch dashboards, metrics and alarms
-- Grafana and Container Insights
-- Kubernetes pod, node and HPA analysis
-- Incident investigation and signal correlation
-- Liveness/readiness behavior
-- Operational health checks and status reporting
+- Dashboards and alerts
+- Incident investigation
+- Kubernetes pod and node analysis
+- Readiness and liveness behavior
+- Operational health checks
+- Signal correlation across logs, metrics and runtime state
 
 ## Backend and product engineering
 
-I also build product-facing systems when needed, especially internal platforms and automation products.
+::badge[Python]
+::badge[FastAPI]
+::badge[SQLAlchemy]
+::badge[MySQL]
+::badge[React-ready]
 
-- Python, FastAPI and SQLAlchemy
-- REST APIs and service integration
-- MySQL and DynamoDB usage patterns
-- React-ready frontend collaboration
-- Dockerized local stacks
-- Product thinking for technical tools
+- APIs and service integration
+- Internal tools and automation products
+- Dockerized local environments
+- Product thinking for engineering workflows
 
 ## AI and modern engineering workflows
 
-I actively follow and experiment with AI tooling, especially where it improves engineering velocity, code understanding and operational workflows.
+::badge[OpenAI]
+::badge[Anthropic]
+::badge[Ollama]
+::badge[LiteLLM]
+::badge[RAG]
+::badge[AI Agents]
 
-- LLM-assisted development and code review workflows
+:::callout[purple]
+I follow and experiment with AI tooling from an engineering workflow perspective: agents, local models, retrieval, model routing, repository understanding and automation.
+:::
+
+- LLM-assisted development and code review
 - Multi-model routing concepts
-- Local models with Ollama
+- Local-first experiments with Ollama
 - LiteLLM and provider abstraction
-- OpenAI and Anthropic-ready architecture
-- RAG concepts, embeddings and knowledge retrieval
-- AI agents for repository understanding and automation
-- Practical use of AI in DevOps, documentation and incident support
-
-## How I like to work
-
-- Prefer simple systems with clear failure modes.
-- Automate repeated work, but keep escape hatches.
-- Make production observable before calling it production.
-- Write documentation that helps the next person, not just the current ticket.
-- Treat infrastructure as a product, not a pile of YAML.
+- RAG, embeddings and knowledge retrieval
+- AI agents for codebase and operational workflows
+- Documentation and incident support with AI assistance

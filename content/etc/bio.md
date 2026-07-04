@@ -2,43 +2,53 @@
 
 [[bio-hero]]
 
-Renan Berto
-DevOps Engineer
+::status[portfolio online]
+::stack[DevOps · Cloud · Linux · Automation · AI]
 
-I build and operate cloud infrastructure, automation workflows and production systems with a strong Linux and DevOps foundation.
+## Who I am
 
-My work usually sits between engineering and operations: the place where architecture diagrams become pods, logs, alarms, certificates, WAF rules, deployment windows and real users.
+I am Renan Berto, a DevOps Engineer focused on cloud infrastructure, Kubernetes, Linux systems, automation, observability and security-minded operations.
 
-## What I do
+I like systems that are boring in production, visible when they fail and simple enough for the next person to operate without summoning ancient spirits.
 
-I work with cloud infrastructure, Kubernetes, automation, security hardening, observability and internal tooling.
-I like systems that are boring in production, easy to reason about and honest when something breaks.
+## What I build
+
+:::grid
+:::card[Cloud Platforms]
+AWS environments, EKS workloads, edge protection, account operations and production infrastructure.
+:::
+
+:::card[Automation]
+Scripts, pipelines, operational workflows and tools that reduce repetitive manual work.
+:::
+
+:::card[Reliability]
+Monitoring, scaling behavior, incident investigation, rollback thinking and production readiness.
+:::
+
+:::card[AI Workflows]
+Practical AI usage for development, documentation, repository understanding and operational support.
+:::
+:::
+
+## Engineering style
+
+- Prefer clear systems over clever systems.
+- Treat infrastructure as a product.
+- Automate the repeated work, document the risky work.
+- Make production observable before calling it stable.
+- Use AI as a force multiplier, not a magic fog machine.
 
 ## Contact
 
-- Email: renanbertoo@gmail.com
-- GitHub: github.com/renanberto
-- LinkedIn: www.linkedin.com/in/renan-berto
+::link[Email|mailto:renanbertoo@gmail.com]
+::link[GitHub|https://github.com/renanberto]
+::link[LinkedIn|https://www.linkedin.com/in/renan-berto]
 
-## What OpenRoot is
+## Start here
 
-OpenRoot is both a portfolio and a small operating-system metaphor.
+`read skills`
 
-Instead of a traditional page with sections, this site behaves like a static terminal OS.
-The filesystem is the navigation model:
+`read projects`
 
-- `/etc` contains identity, skills and configuration
-- `/usr/projects` contains project work
-- `/var/log` contains timeline and release history
-- `/dev/contact` contains contact endpoints
-- `nonroot` opens a clean guided version for humans who do not want to type commands
-
-## Good commands to start
-
-`cat /etc/skills.md`
-
-`ls /usr/projects`
-
-`cat /usr/projects/waf/README.md`
-
-`nonroot`
+`recruiter`

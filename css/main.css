@@ -423,7 +423,7 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
 }
 
 
-/* Release 0.2.2-mobile-nonroot nonroot redesign */
+/* Release 0.2.3-content-polish nonroot redesign */
 .nonroot {
   width:min(1180px,95vw);
   height:min(880px,94vh);
@@ -912,4 +912,105 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
   .simple-output {
     margin-bottom:24px;
   }
+}
+
+
+/* Release 0.2.3 markdown polish */
+.md-status {
+  display:inline-flex;
+  color:#9cffb1;
+  border:1px solid rgba(156,255,177,.30);
+  background:rgba(156,255,177,.08);
+  padding:6px 10px;
+  margin:0 0 12px;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.md-stack {
+  color:var(--dim);
+  border-left:2px solid var(--fg);
+  padding:6px 0 6px 12px;
+  margin:0 0 18px;
+  font-size:.88rem;
+}
+
+.md-badge {
+  display:inline-flex;
+  color:var(--fg);
+  border:1px solid var(--soft);
+  background:rgba(255,255,255,.04);
+  padding:5px 8px;
+  margin:0 6px 8px 0;
+  font-size:.78rem;
+}
+
+.md-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+
+.md-card {
+  border:1px solid var(--soft);
+  background:rgba(255,255,255,.035);
+  padding:16px;
+}
+
+.md-card h3 {
+  color:var(--fg);
+  margin:0 0 8px;
+  font-size:1rem;
+}
+
+.md-card p {
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.md-callout {
+  border:1px solid var(--soft);
+  padding:14px 16px;
+  margin:18px 0;
+  line-height:1.65;
+}
+
+.md-callout.green {
+  border-color:rgba(156,255,177,.25);
+  background:rgba(156,255,177,.06);
+}
+
+.md-callout.yellow {
+  border-color:rgba(255,210,120,.28);
+  background:rgba(255,210,120,.07);
+}
+
+.md-callout.purple {
+  border-color:rgba(203,166,247,.30);
+  background:rgba(203,166,247,.07);
+}
+
+.md-link {
+  display:inline-flex;
+  border:1px solid var(--soft);
+  color:var(--fg);
+  background:rgba(255,255,255,.035);
+  padding:8px 10px;
+  margin:4px 8px 4px 0;
+  text-decoration:none;
+}
+
+.md-link:hover {
+  border-color:var(--fg);
+}
+
+.content-card h2 {
+  margin-top:26px;
+}
+
+.content-card h2:first-child {
+  margin-top:0;
 }

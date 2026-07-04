@@ -14,7 +14,7 @@ window.OpenRootSystemPlugin = {
 \\____/ .___/\\___/_/ /_/_/ |_|\\____/ .___/\\__/  
     /_/                           /_/           
 
-        openroot.tech  ::  Release 0.1
+        openroot.tech  ::  Release 0.2.3-content-polish
         static terminal os for cloud, linux and automation
 `
     },
