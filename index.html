@@ -6,7 +6,7 @@
   <meta name="description" content="openroot.tech - A static terminal OS for cloud engineering, Linux, automation and infrastructure." />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="openroot.tech" />
-  <meta property="og:description" content="Release 0.2.1-content-mobile of a service-aware static terminal OS." />
+  <meta property="og:description" content="Release 0.2.2-mobile-nonroot of a service-aware static terminal OS." />
   <meta property="og:type" content="website" />
   <title>openroot.tech</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -26,7 +26,7 @@
         </svg>
       </div>
       <div class="boot-line"><span class="prompt">&gt;</span><span id="bootText"></span><span class="cursor"></span></div>
-      <p class="boot-subtitle">OpenRoot OS Release 0.2.1-content-mobile</p>
+      <p class="boot-subtitle">OpenRoot OS Release 0.2.2-mobile-nonroot</p>
     </section>
 
     <section class="tui hidden" id="tui" aria-label="openroot.tech terminal operating system">
@@ -62,36 +62,43 @@
       </section>
 
       <footer class="command-tips"      <footer class="command-tips" aria-label="Terminal tips">
-        <span>Release 0.2.1-content-mobile: curated filesystem sidebar, bio layer, ASCII, SSH and full themes.</span>
+        <span>Release 0.2.2-mobile-nonroot: curated filesystem sidebar, bio layer, ASCII, SSH and full themes.</span>
         <span>Try <kbd>ascii</kbd>, <kbd>ssh openroot.tech</kbd>, <kbd>themes</kbd>, <kbd>theme dracula</kbd>.</span>
         <span><kbd>tree /</kbd> still prints the complete filesystem in the terminal.</span>
       </footer>
     </section>
 
-    <section class="nonroot hidden" id="nonroot" aria-label="Simple friendly portfolio view">
-      <div class="nonroot-frame">
+    <section class="nonroot hidden" id="nonroot" aria-label="Simple portfolio view">
+      <div class="nonroot-frame portfolio-mode">
         <header class="nonroot-clean-header">
           <button class="back-button" id="backToTerminal" type="button">← Back to terminal</button>
-          <p class="eyebrow">openroot.tech / nonroot</p>
-          <h1>A clean catalog for people who do not speak terminal.</h1>
+          <p class="eyebrow">openroot.tech / portfolio mode</p>
+          <h1>Renan Berto</h1>
           <p class="lead">
-            This is the same OpenRoot OS content, translated into a simple portfolio:
-            bio, skills, projects, notes and contact.
+            DevOps Engineer focused on cloud infrastructure, Kubernetes, Linux, automation,
+            security, observability and practical AI-assisted engineering workflows.
           </p>
+
+          <div class="portfolio-contact-row">
+            <a href="mailto:renanbertoo@gmail.com">renanbertoo@gmail.com</a>
+            <a href="https://github.com/renanberto" target="_blank" rel="noreferrer">github.com/renanberto</a>
+            <a href="https://www.linkedin.com/in/renan-berto" target="_blank" rel="noreferrer">linkedin.com/in/renan-berto</a>
+          </div>
         </header>
 
         <section class="nonroot-hero">
           <div class="bio-photo" role="img" aria-label="Profile photo placeholder"></div>
           <div>
             <p class="bio-kicker">portfolio identity</p>
-            <h2>Renan Berto</h2>
+            <h2>DevOps, Cloud and Automation</h2>
             <p>
-              DevOps Engineer focused on cloud infrastructure, Linux systems, automation,
-              production readiness and security-minded operations.
+              I build and operate production systems where reliability, visibility and automation matter.
+              This portfolio keeps the terminal DNA, but this mode is designed as a readable catalog.
             </p>
             <div class="nonroot-actions">
               <button type="button" data-open="/etc/bio.md">Read bio</button>
-              <button type="button" data-open="/usr/projects">View projects</button>
+              <button type="button" data-open="/etc/skills.md">Skills</button>
+              <button type="button" data-open="/usr/projects">Projects</button>
               <button type="button" data-open="/dev/contact">Contact</button>
             </div>
           </div>
@@ -100,7 +107,7 @@
         <section class="catalog-section">
           <div>
             <p class="eyebrow">Catalog</p>
-            <h2>Choose where to start</h2>
+            <h2>Explore the portfolio</h2>
           </div>
 
           <div class="catalog-grid">
@@ -112,27 +119,27 @@
             <button type="button" data-open="/etc/skills.md">
               <span>02</span>
               <strong>Skills</strong>
-              <small>Cloud, Kubernetes, Linux, automation, security and observability.</small>
+              <small>Cloud, DevOps, Kubernetes, Linux, automation, security and AI.</small>
             </button>
             <button type="button" data-open="/usr/projects">
               <span>03</span>
               <strong>Projects</strong>
-              <small>Selected systems, platforms and architecture cases.</small>
+              <small>Systems, platforms and architecture cases.</small>
             </button>
             <button type="button" data-open="/usr/lab">
               <span>04</span>
               <strong>Lab</strong>
-              <small>Experiments, drafts and technical notes.</small>
+              <small>Experiments, notes and technical ideas.</small>
             </button>
             <button type="button" data-open="/var/log/releases.log">
               <span>05</span>
               <strong>Timeline</strong>
-              <small>Release log and evolution of this portfolio OS.</small>
+              <small>Release history and evolution of OpenRoot.</small>
             </button>
             <button type="button" data-open="/dev/contact">
               <span>06</span>
               <strong>Contact</strong>
-              <small>Email, GitHub, LinkedIn and resume placeholder.</small>
+              <small>Email, GitHub and LinkedIn.</small>
             </button>
           </div>
         </section>

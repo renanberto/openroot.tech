@@ -5,7 +5,7 @@ window.OpenRootNavigationPlugin = {
     {
       name: "help",
       description: "Show help.",
-      run: (_, __, ctx) => `OpenRoot OS Release 0.1.9
+      run: (_, __, ctx) => `OpenRoot OS Release 0.2.2-mobile-nonroot
 
 Try:
 ascii
@@ -69,8 +69,8 @@ ${plugin.commands.map(c => "- " + c).join("\n")}`;
     { name: "unalias", description: "Remove alias.", usage: "unalias p", run: (arg, raw, ctx) => { if (!arg) return "unalias: missing alias name"; ctx.shell.unsetAlias(arg); return `alias removed: ${arg}`; } },
     { name: "clear", description: "Clear terminal output.", run: (_, __, ctx) => { ctx.ui.clearTerminal(); return ""; } },
     { name: "github", description: "Open mocked GitHub process file.", run: (_, raw, ctx) => window.OpenRootFilesystemPlugin.commands.find(c => c.name === "cat").run("/proc/github", raw, ctx) },
-    { name: "linkedin", description: "Show LinkedIn placeholder.", run: () => "LinkedIn placeholder: https://linkedin.com/in/your-user" },
-    { name: "resume", description: "Show resume placeholder.", run: () => "Resume placeholder: /assets/resume.pdf" }
+    { name: "linkedin", description: "Show LinkedIn placeholder.", run: () => "LinkedIn placeholder: https://www.linkedin.com/in/renan-berto" },
+    { name: "resume", description: "Show resume placeholder.", run: () => "Resume: assets/resume.pdf" }
   ],
   completions() { return ["help", "plugins", "plugin filesystem", "plugin git", "plugin system", "plugin services", "plugin fun", "plugin navigation", "commands", "nonroot", "simple", "whoami", "history", "alias ", "aliases", "unalias ", "clear", "github", "linkedin", "resume"]; }
 };

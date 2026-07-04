@@ -1,1 +1,25 @@
-hello@openroot.tech
+# Contact
+
+You can reach me through the following channels:
+
+## Email
+
+renanbertoo@gmail.com
+
+## GitHub
+
+github.com/renanberto
+
+## LinkedIn
+
+www.linkedin.com/in/renan-berto
+
+## Resume
+
+The resume file can be added later as:
+
+`assets/resume.pdf`
+
+Once the PDF is in place, this command can point to it:
+
+`resume`

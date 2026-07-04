@@ -1,8 +1,8 @@
 var OPENROOT_CONTENT = {
   "system": {
     "name": "openroot.tech",
-    "version": "Release 0.2.1-content-mobile",
-    "edition": "OpenRoot OS Release 0.2.1-content-mobile",
+    "version": "Release 0.2.2-mobile-nonroot",
+    "edition": "OpenRoot OS Release 0.2.2-mobile-nonroot",
     "defaultCwd": "/home/visitor",
     "defaultOpen": "/etc/bio.md"
   },
@@ -15,7 +15,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/etc/bio.md",
       "title": "Bio",
-      "body": "# Bio\n\n[[bio-hero]]\n\nRenan Berto\nDevOps Engineer\n\nI build and operate cloud infrastructure, automation workflows and production systems with a strong Linux and DevOps foundation.\n\nMy work usually sits between engineering and operations: the place where architecture diagrams become pods, logs, alarms, certificates, WAF rules, deployment windows and real users.\n\n## What I do\n\nI work with cloud infrastructure, Kubernetes, automation, security hardening, observability and internal tooling.\nI like systems that are boring in production, easy to reason about and honest when something breaks.\n\n## What OpenRoot is\n\nOpenRoot is both a portfolio and a small operating-system metaphor.\n\nInstead of a traditional page with sections, this site behaves like a static terminal OS.\nThe filesystem is the navigation model:\n\n- `/etc` contains identity, skills and configuration\n- `/usr/projects` contains project work\n- `/var/log` contains timeline and release history\n- `/dev/contact` contains contact endpoints\n- `nonroot` opens a clean guided version for humans who do not want to type commands\n\n## Current focus\n\n- building reliable cloud and Kubernetes systems\n- turning manual operations into repeatable automation\n- using AI practically in engineering workflows\n- improving documentation, observability and production readiness\n- designing technical products with a memorable identity\n\n## Good commands to start\n\n`cat /etc/skills.md`\n\n`ls /usr/projects`\n\n`cat /usr/projects/waf/README.md`\n\n`nonroot`\n\nPhoto placeholder:\nReplace `assets/profile-placeholder.svg` with a real image later.\n"
+      "body": "# Bio\n\n[[bio-hero]]\n\nRenan Berto\nDevOps Engineer\n\nI build and operate cloud infrastructure, automation workflows and production systems with a strong Linux and DevOps foundation.\n\nMy work usually sits between engineering and operations: the place where architecture diagrams become pods, logs, alarms, certificates, WAF rules, deployment windows and real users.\n\n## What I do\n\nI work with cloud infrastructure, Kubernetes, automation, security hardening, observability and internal tooling.\nI like systems that are boring in production, easy to reason about and honest when something breaks.\n\n## Contact\n\n- Email: renanbertoo@gmail.com\n- GitHub: github.com/renanberto\n- LinkedIn: www.linkedin.com/in/renan-berto\n\n## What OpenRoot is\n\nOpenRoot is both a portfolio and a small operating-system metaphor.\n\nInstead of a traditional page with sections, this site behaves like a static terminal OS.\nThe filesystem is the navigation model:\n\n- `/etc` contains identity, skills and configuration\n- `/usr/projects` contains project work\n- `/var/log` contains timeline and release history\n- `/dev/contact` contains contact endpoints\n- `nonroot` opens a clean guided version for humans who do not want to type commands\n\n## Good commands to start\n\n`cat /etc/skills.md`\n\n`ls /usr/projects`\n\n`cat /usr/projects/waf/README.md`\n\n`nonroot`\n"
     },
     {
       "path": "/etc/profile",
@@ -95,7 +95,7 @@ var OPENROOT_CONTENT = {
     {
       "path": "/var/log/releases.log",
       "title": "Release Log",
-      "body": "# /var/log/releases.log\n\nRelease 0.2.1-content-mobile  Human-readable content and mobile responsiveness pass\nRelease 0.2.0-prod-prep  Production prep, workflow and structured sidebar\nRelease 0.1.9  GitHub Pages workflow and terminal transcript\nRelease 0.1.8  UX and nonroot catalog redesign\n"
+      "body": "# /var/log/releases.log\n\nRelease 0.2.2-mobile-nonroot  Mobile terminal disabled, nonroot portfolio mode and real contact links\nRelease 0.2.2-mobile-nonroot  Human-readable content and mobile responsiveness pass\nRelease 0.2.0-prod-prep  Production prep, workflow and structured sidebar\nRelease 0.1.9  GitHub Pages workflow and terminal transcript\n"
     },
     {
       "path": "/var/log/journal.log",
@@ -119,8 +119,8 @@ var OPENROOT_CONTENT = {
     },
     {
       "path": "/dev/contact",
-      "title": "Contact Device",
-      "body": "# /dev/contact\n\nEmail:\nhello@openroot.tech\n\nGitHub:\nhttps://github.com/your-user\n\nLinkedIn:\nhttps://linkedin.com/in/your-user\n\nResume:\nassets/resume.pdf"
+      "title": "Contact",
+      "body": "# Contact\n\nYou can reach me through the following channels:\n\n## Email\n\nrenanbertoo@gmail.com\n\n## GitHub\n\ngithub.com/renanberto\n\n## LinkedIn\n\nwww.linkedin.com/in/renan-berto\n\n## Resume\n\nThe resume file can be added later as:\n\n`assets/resume.pdf`\n\nOnce the PDF is in place, this command can point to it:\n\n`resume`\n"
     },
     {
       "path": "/man/README.md",

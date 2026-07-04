@@ -147,12 +147,17 @@
 
     await sleep(260);
     ui.el.boot.classList.add("hidden");
-    ui.el.tui.classList.remove("hidden");
+    const isMobilePortfolio = window.matchMedia("(max-width: 760px)").matches;
+    if (isMobilePortfolio) {
+      ui.openNonroot();
+    } else {
+      ui.el.tui.classList.remove("hidden");
+    }
     renderSidebarNav();
     if (ui.el.releaseLabel) ui.el.releaseLabel.textContent = config.release;
     shell.openPath(content.system.defaultOpen, false);
 
-    ui.print(`openroot.tech Release 0.2.1-content-mobile
+    ui.print(`openroot.tech Release 0.2.2-mobile-nonroot
 
 GitHub Pages workflow added.
 Terminal interaction rebuilt as a real transcript.

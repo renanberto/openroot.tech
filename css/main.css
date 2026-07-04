@@ -423,7 +423,7 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
 }
 
 
-/* Release 0.2.1-content-mobile nonroot redesign */
+/* Release 0.2.2-mobile-nonroot nonroot redesign */
 .nonroot {
   width:min(1180px,95vw);
   height:min(880px,94vh);
@@ -820,5 +820,96 @@ kbd { border:1px solid var(--soft); padding:2px 5px; color:var(--fg); background
 
   .top-actions {
     overflow:auto;
+  }
+}
+
+
+/* Release 0.2.2 mobile and nonroot portfolio pass */
+.portfolio-contact-row {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+  margin-top:22px;
+}
+
+.portfolio-contact-row a {
+  border:1px solid var(--soft);
+  background:rgba(255,255,255,.035);
+  color:var(--fg);
+  padding:12px 14px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.portfolio-mode .nonroot-clean-header {
+  border-bottom:1px solid var(--soft);
+  padding-bottom:28px;
+}
+
+.portfolio-mode .catalog-grid button {
+  min-height:170px;
+}
+
+@media (max-width: 760px) {
+  .tui {
+    display:none !important;
+  }
+
+  .boot {
+    display:none !important;
+  }
+
+  .nonroot {
+    display:block !important;
+    width:100vw;
+    height:auto;
+    min-height:100svh;
+    padding:0;
+    overflow:auto;
+  }
+
+  .nonroot.hidden {
+    display:block !important;
+  }
+
+  .nonroot-frame {
+    min-height:100svh;
+    border:0;
+    box-shadow:none;
+    padding:20px;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(255,255,255,.07), transparent 34%),
+      linear-gradient(135deg,rgba(255,255,255,.052),rgba(255,255,255,.014));
+  }
+
+  .back-button {
+    display:none;
+  }
+
+  .nonroot-clean-header h1 {
+    font-size:3.1rem;
+    line-height:.95;
+  }
+
+  .portfolio-contact-row {
+    grid-template-columns:1fr;
+  }
+
+  .nonroot-hero {
+    grid-template-columns:1fr;
+    padding:16px;
+  }
+
+  .catalog-section {
+    grid-template-columns:1fr;
+  }
+
+  .catalog-grid {
+    grid-template-columns:1fr;
+  }
+
+  .simple-output {
+    margin-bottom:24px;
   }
 }
