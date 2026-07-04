@@ -223,3 +223,21 @@ Content polish release:
   - `read hermes`
   - `read jira`
   - `read contact`
+
+
+## Release 0.2.4-content-engine
+
+Structured content engine release:
+
+- Terminal mode keeps using markdown-style virtual files.
+- Nonroot mode now uses structured data from `content/data/portfolio.json`.
+- Added `js/portfolio.data.js` for static/file:// compatibility.
+- Added `js/portfolio-renderer.js`.
+- Nonroot is now a recruiter-friendly portfolio UI with:
+  - hero profile
+  - contact links
+  - recruiter quick signal
+  - skill cards
+  - project case-study cards
+  - "View in terminal" buttons
+- This solves the problem where Markdown looked good in terminal but not in nonroot.

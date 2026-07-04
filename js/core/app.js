@@ -130,6 +130,41 @@
     }
   }
 
+
+  function runCommandFromPortfolio(command) {
+    ui.closeNonroot();
+    if (!ui.el.input) return;
+    ui.el.input.value = command;
+    submitCurrent();
+  }
+
+  function renderStructuredPortfolio() {
+    if (!window.OPENROOT_PORTFOLIO || !window.OpenRootPortfolioRenderer) return;
+
+    const frame = document.querySelector(".nonroot-frame");
+    if (!frame) return;
+
+    frame.innerHTML = "";
+
+    const top = document.createElement("div");
+    top.className = "portfolio-mode-top";
+
+    const back = document.createElement("button");
+    back.type = "button";
+    back.className = "back-button";
+    back.textContent = "← Back to terminal";
+    back.addEventListener("click", ui.closeNonroot);
+
+    top.appendChild(back);
+    frame.appendChild(top);
+
+    const rendered = window.OpenRootPortfolioRenderer.render(window.OPENROOT_PORTFOLIO, {
+      runCommand: runCommandFromPortfolio
+    });
+
+    frame.appendChild(rendered);
+  }
+
   function bindCurrentInput() {
     if (!ui.el.input) return;
     ui.el.input.addEventListener("keydown", handleInputKeydown);
@@ -157,7 +192,7 @@
     if (ui.el.releaseLabel) ui.el.releaseLabel.textContent = config.release;
     shell.openPath(content.system.defaultOpen, false);
 
-    ui.print(`openroot.tech Release 0.2.3-content-polish
+    ui.print(`openroot.tech Release 0.2.4-content-engine
 
 GitHub Pages workflow added.
 Terminal interaction rebuilt as a real transcript.
@@ -290,7 +325,8 @@ Type "help" to list commands.
     });
   });
 
-  ui.el.backToTerminal.addEventListener("click", ui.closeNonroot);
+  if (ui.el.backToTerminal) ui.el.backToTerminal.addEventListener("click", ui.closeNonroot);
+  renderStructuredPortfolio();
   ui.updateClock();
   setInterval(ui.updateClock, 20000);
   boot();

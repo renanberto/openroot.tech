@@ -99,7 +99,7 @@ window.OpenRootUI = (() => {
   function openNonroot() {
     el.tui.classList.add("hidden");
     el.nonroot.classList.remove("hidden");
-    el.simpleOutput.textContent = "Pick a card above. I will show the content here without requiring terminal commands.";
+    if (el.simpleOutput) el.simpleOutput.textContent = "Pick a card above. I will show the content here without requiring terminal commands.";
     el.nonroot.scrollTop = 0;
   }
 
