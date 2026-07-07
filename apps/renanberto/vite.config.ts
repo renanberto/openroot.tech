@@ -31,6 +31,7 @@ export default defineConfig({
       "@openroot/plugin-portfolio": alias("packages/plugin-portfolio/src/index.ts"),
       "@openroot/plugin-fun": alias("packages/plugin-fun/src/index.ts"),
       "@openroot/plugin-system": alias("packages/plugin-system/src/index.ts"),
+      "@openroot/plugin-developer": alias("packages/plugin-developer/src/index.ts"),
       "@openroot/story": alias("packages/story/src/index.ts"),
       "@openroot/graph": alias("packages/graph/src/index.ts"),
       "@openroot/theme-openroot": alias("packages/theme-openroot/src/index.ts")

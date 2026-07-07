@@ -1,8 +1,8 @@
 {
   "name": "openroot-os",
-  "version": "5.0.0-prod",
+  "version": "6.0.0-prod",
   "private": true,
-  "description": "OpenRoot OS Release 5 - OpenRoot OS production release for openroot.tech.",
+  "description": "OpenRoot OS Release 6 - Developer Experience production release for openroot.tech.",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --config apps/renanberto/vite.config.ts",
@@ -14,8 +14,8 @@
     "validate:pages": "node scripts/validate-pages-output.mjs",
     "generate:public-content": "node scripts/generate-public-content.mjs",
     "test": "node scripts/validate-features.mjs",
-    "lint": "echo \"No lint configured for OS Release 5\"",
-    "format": "echo \"No formatter configured for OS Release 5\"",
+    "lint": "echo \"No lint configured for OS Release 6\"",
+    "format": "echo \"No formatter configured for OS Release 6\"",
     "validate:architecture": "node scripts/validate-architecture.mjs",
     "validate:all": "npm run validate && npm run validate:content && npm run validate:architecture && npm run validate:features && npm run validate:consistency && npm run typecheck",
     "audit:static": "node scripts/static-audit.mjs",

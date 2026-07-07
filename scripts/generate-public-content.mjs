@@ -27,11 +27,13 @@ const knowledge = {
   caseStudies: readJson(join(contentRoot, "case-studies", "case-studies.json")),
   downloads: readJson(join(contentRoot, "downloads", "downloads.json")),
   seo: readJson(join(contentRoot, "seo", "seo.json")),
-  accessibility: readJson(join(contentRoot, "accessibility", "accessibility.json"))
+  accessibility: readJson(join(contentRoot, "accessibility", "accessibility.json")),
+  developer: readJson(join(contentRoot, "developer", "developer.json"))
 };
 
 mkdirSync(outRoot, { recursive: true });
 writeFileSync(join(outRoot, "knowledge.json"), JSON.stringify(knowledge, null, 2));
-writeFileSync(join(outRoot, "health.json"), JSON.stringify({ status: "ok", runtime: "static", host: "github-pages", build: "os-release-5-prod" }, null, 2));
+writeFileSync(join(outRoot, "developer.json"), JSON.stringify(knowledge.developer, null, 2));
+writeFileSync(join(outRoot, "health.json"), JSON.stringify({ status: "ok", runtime: "static", host: "github-pages", build: "os-release-6-prod" }, null, 2));
 
 console.log("Generated public/api static content.");

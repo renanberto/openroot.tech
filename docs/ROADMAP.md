@@ -1028,11 +1028,11 @@ Acceptance
 
 # Release 6 - Developer Experience
 
-Status: TODO
+Status: DONE
 
 ## R6.1
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1040,10 +1040,10 @@ Goal
 Implement and finalize **API**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - API implemented.
@@ -1052,7 +1052,7 @@ Acceptance
 
 ## R6.2
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1060,10 +1060,10 @@ Goal
 Implement and finalize **JSON Engine**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - JSON Engine implemented.
@@ -1072,7 +1072,7 @@ Acceptance
 
 ## R6.3
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1080,10 +1080,10 @@ Goal
 Implement and finalize **Plugin System**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Plugin System implemented.
@@ -1092,7 +1092,7 @@ Acceptance
 
 ## R6.4
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1100,10 +1100,10 @@ Goal
 Implement and finalize **Extensions**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Extensions implemented.
@@ -1112,7 +1112,7 @@ Acceptance
 
 ## R6.5
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1120,10 +1120,10 @@ Goal
 Implement and finalize **CLI**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - CLI implemented.
@@ -1132,7 +1132,7 @@ Acceptance
 
 ## R6.6
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1140,10 +1140,10 @@ Goal
 Implement and finalize **Importers**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Importers implemented.
@@ -1152,7 +1152,7 @@ Acceptance
 
 ## R6.7
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1160,10 +1160,10 @@ Goal
 Implement and finalize **Exporters**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Exporters implemented.
@@ -1172,7 +1172,7 @@ Acceptance
 
 ## R6.8
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1180,10 +1180,10 @@ Goal
 Implement and finalize **Testing**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Testing implemented.
@@ -1192,7 +1192,7 @@ Acceptance
 
 ## R6.9
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1200,10 +1200,10 @@ Goal
 Implement and finalize **Documentation**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Documentation implemented.
@@ -1212,7 +1212,7 @@ Acceptance
 
 ## R6.10
 
-Status: TODO
+Status: DONE
 Priority: MEDIUM
 Estimated: 2d
 
@@ -1220,10 +1220,10 @@ Goal
 Implement and finalize **Release**.
 
 Tasks
-- [ ] Design
-- [ ] Implement
-- [ ] Test
-- [ ] Documentation
+- [x] Design
+- [x] Implement
+- [x] Test
+- [x] Documentation
 
 Acceptance
 - Release implemented.

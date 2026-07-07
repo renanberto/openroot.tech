@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.0.0-prod - 2026-07-07
+
+- Added Developer Experience release layer.
+- Added `/developer` knowledge file and generated `/api/developer.json`.
+- Added `@openroot/plugin-developer` with API, JSON, plugin, extension, CLI, importer, exporter, testing and docs commands.
+- Added developer folder to the filesystem and developer entries to the command palette.
+- Updated validators, roadmap, release docs and static release metadata to Release 6.
+
 ## 5.0.0-prod - OS Release 5 / OpenRoot OS
 
 ### Added
@@ -18,6 +26,7 @@
 
 ### Fixed
 
+- Left sidebar favorites strip no longer breaks when many favorites are saved; favorites now wrap into a bounded grid with vertical scroll and truncated labels.
 - Right inspector header no longer breaks from excessive menu buttons.
 
 ### Validated
@@ -102,3 +111,5 @@
 
 - Production baseline for OpenRoot OS.
 - Terminal, filesystem, inspector, GitHub Pages workflow and static build.
+- Removed the fragile left-sidebar favorites strip; favorites now remain available through filesystem star markers and context-menu actions.
+- Reworked sidebar/top action bars so controls wrap cleanly without breaking the shell layout.

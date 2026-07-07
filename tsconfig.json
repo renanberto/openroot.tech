@@ -56,6 +56,9 @@
       "@openroot/plugin-system": [
         "packages/plugin-system/src/index.ts"
       ],
+      "@openroot/plugin-developer": [
+        "packages/plugin-developer/src/index.ts"
+      ],
       "@openroot/graph": [
         "packages/graph/src/index.ts"
       ],

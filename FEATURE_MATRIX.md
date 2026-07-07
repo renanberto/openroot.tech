@@ -46,3 +46,16 @@
 | Settings command | R5 | DONE |
 | Simplified terminal quick bar | R5 | DONE |
 | Right inspector header fix | R5 | DONE |
+
+
+## Release 6 - Developer Experience
+
+| Capability | Status | Surface |
+| --- | --- | --- |
+| Static API contract | DONE | `/api/health.json`, `/api/knowledge.json`, `/api/developer.json`, `api endpoints` |
+| JSON engine documentation | DONE | `/developer`, `json contract` |
+| Plugin registry | DONE | `@openroot/plugin-developer`, `plugins list` |
+| Extension map | DONE | `extensions map` |
+| CLI guide | DONE | `cli`, command palette |
+| Import/export contracts | DONE | `importers`, `exporters` |
+| Release testing gates | DONE | `testing gates`, validators |

@@ -20,7 +20,8 @@ const checks = [
   ["CNAME exists", existsSync(join(dist, "CNAME"))],
   [".nojekyll exists", existsSync(join(dist, ".nojekyll"))],
   ["knowledge snapshot exists", existsSync(join(dist, "api", "knowledge.json"))],
-  ["health snapshot exists", existsSync(join(dist, "api", "health.json"))]
+  ["health snapshot exists", existsSync(join(dist, "api", "health.json"))],
+  ["developer snapshot exists", existsSync(join(dist, "api", "developer.json"))]
 ];
 
 for (const [label, passed] of checks) {

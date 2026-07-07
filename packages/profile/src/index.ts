@@ -82,7 +82,7 @@ export function renderInspector(target: HTMLElement, fs: VirtualFileSystem, opti
     <section class="inspector-context">
       <article><span>Active path</span><strong>${options.path ?? "/profile/home"}</strong></article>
       <article><span>Experience</span><strong>10+ years</strong></article>
-      <article><span>Release</span><strong>OS Release 5</strong></article>
+      <article><span>Release</span><strong>OS Release 6</strong></article>
     </section>
   `;
 
@@ -328,7 +328,7 @@ export function renderInspector(target: HTMLElement, fs: VirtualFileSystem, opti
     <section class="featured document-view">
       <header><h3>${icon("system", "System")}</h3><span>static github pages runtime</span></header>
       <article class="graph-box">
-        <p><b>OpenRoot OS Release 5</b></p>
+        <p><b>OpenRoot OS Release 6</b></p>
         <p>OpenRoot OS release: recruiter inspector reduced to Profile, Projects, Skills and Contact. Desktop, applications, dock, notifications, widgets, settings and theme details are available through terminal commands.</p>
       </article>
     </section>

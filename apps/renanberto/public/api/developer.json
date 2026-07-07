@@ -1,0 +1,142 @@
+{
+  "label": "Developer Experience",
+  "version": "6.0.0-prod",
+  "summary": "A terminal-first developer layer for OpenRoot OS: static API metadata, JSON contracts, plugin registry, extension map, CLI command guide, import/export contracts, test gates and documentation signals.",
+  "api": {
+    "runtime": "static-github-pages",
+    "endpoints": [
+      {
+        "path": "/api/health.json",
+        "purpose": "Static health snapshot for uptime checks and release verification."
+      },
+      {
+        "path": "/api/knowledge.json",
+        "purpose": "Full public knowledge snapshot generated from content/knowledge."
+      },
+      {
+        "path": "/api/developer.json",
+        "purpose": "Developer-facing contract with commands, plugins, extensions and release gates."
+      }
+    ],
+    "contract": "No backend is required. Consumers should treat the API as immutable static JSON until the next release artifact is deployed."
+  },
+  "jsonEngine": {
+    "sourceOfTruth": "apps/renanberto/content/knowledge",
+    "generator": "scripts/generate-public-content.mjs",
+    "rules": [
+      "Every knowledge file must be valid JSON.",
+      "Public snapshots are generated during build before Vite emits dist.",
+      "Release metadata must stay synchronized across package.json, health.json and docs."
+    ]
+  },
+  "pluginSystem": {
+    "runtime": "createOpenRoot registers plugins before shell boot.",
+    "plugins": [
+      "filesystem",
+      "portfolio",
+      "system",
+      "fun",
+      "developer"
+    ],
+    "extensionPoints": [
+      "commands",
+      "themes",
+      "knowledge files",
+      "filesystem nodes",
+      "public JSON snapshots"
+    ]
+  },
+  "extensions": [
+    {
+      "name": "Command extension",
+      "status": "ready",
+      "example": "Add an OpenRootPlugin command and register it in main.ts."
+    },
+    {
+      "name": "Content extension",
+      "status": "ready",
+      "example": "Add JSON under content/knowledge and mount it in src/content.ts."
+    },
+    {
+      "name": "Static API extension",
+      "status": "ready",
+      "example": "Expose generated snapshots under public/api."
+    },
+    {
+      "name": "Theme extension",
+      "status": "ready",
+      "example": "Register a theme through the theme registry."
+    }
+  ],
+  "cli": {
+    "commands": [
+      "devx",
+      "api",
+      "json",
+      "plugins",
+      "extensions",
+      "cli",
+      "importers",
+      "exporters",
+      "testing",
+      "docs"
+    ],
+    "examples": [
+      "devx",
+      "api endpoints",
+      "json contract",
+      "plugins list",
+      "extensions map",
+      "testing gates"
+    ]
+  },
+  "importers": [
+    {
+      "source": "knowledge-json",
+      "mode": "manual",
+      "target": "VirtualFileSystem"
+    },
+    {
+      "source": "profile-content",
+      "mode": "manual",
+      "target": "Inspector and terminal commands"
+    },
+    {
+      "source": "release-docs",
+      "mode": "manual",
+      "target": "Docs and public snapshots"
+    }
+  ],
+  "exporters": [
+    {
+      "target": "GitHub Pages dist",
+      "script": "npm run build"
+    },
+    {
+      "target": "public API snapshots",
+      "script": "npm run generate:public-content"
+    },
+    {
+      "target": "production release candidate",
+      "script": "npm run rc:check"
+    }
+  ],
+  "testing": {
+    "gates": [
+      "npm run validate:all",
+      "npm run build",
+      "npm run validate:pages",
+      "npm run audit:static",
+      "npm run rc:check"
+    ],
+    "status": "release-gated"
+  },
+  "documentation": [
+    "OS_RELEASE_6_PROD.md",
+    "docs/releases/Release-06.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "FEATURE_MATRIX.md",
+    "README.md"
+  ]
+}

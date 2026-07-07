@@ -22,7 +22,8 @@ const required = [
   "case-studies/case-studies.json",
   "downloads/downloads.json",
   "seo/seo.json",
-  "accessibility/accessibility.json"
+  "accessibility/accessibility.json",
+  "developer/developer.json"
 ];
 
 let ok = true;

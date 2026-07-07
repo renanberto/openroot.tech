@@ -30,6 +30,7 @@ const requiredPackages = [
   "packages/plugin-portfolio/src/index.ts",
   "packages/plugin-fun/src/index.ts",
   "packages/plugin-system/src/index.ts",
+  "packages/plugin-developer/src/index.ts",
   "packages/theme-openroot/src/index.ts"
 ];
 

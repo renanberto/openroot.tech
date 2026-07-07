@@ -7,6 +7,7 @@ import { createFilesystemPlugin } from "@openroot/plugin-filesystem";
 import { createPortfolioPlugin } from "@openroot/plugin-portfolio";
 import { createFunPlugin } from "@openroot/plugin-fun";
 import { createSystemPlugin } from "@openroot/plugin-system";
+import { createDeveloperPlugin } from "@openroot/plugin-developer";
 import { openRootTheme } from "@openroot/theme-openroot";
 import { knowledge, graph } from "./content";
 import "./styles.css";
@@ -19,7 +20,7 @@ const fs = new VirtualFileSystem(knowledge);
 
 const runtime = createOpenRoot({
   appId: "renanberto",
-  version: "OpenRoot OS Release 5 / PROD",
+  version: "OpenRoot OS Release 6 / PROD",
   defaultMode: "profile"
 });
 
@@ -27,6 +28,7 @@ runtime.registerTheme(openRootTheme);
 runtime.registerPlugin(createFilesystemPlugin(fs));
 runtime.registerPlugin(createPortfolioPlugin(fs));
 runtime.registerPlugin(createSystemPlugin());
+runtime.registerPlugin(createDeveloperPlugin(fs));
 runtime.registerPlugin(createFunPlugin());
 
 const shell = new ShellRuntime(runtime.commands, {
@@ -73,7 +75,7 @@ let commandPaletteOpen = false;
 let documentEventsWired = false;
 let filesystemWidth = Number(localStorage.getItem("openroot.fs.width") ?? "320");
 let inspectorWidth = Number(localStorage.getItem("openroot.inspector.width") ?? "500");
-let expandedFolders = new Set<string>(JSON.parse(localStorage.getItem("openroot.fs.expanded") ?? "[\"profile\",\"skills\",\"projects\",\"system\"]"));
+let expandedFolders = new Set<string>(JSON.parse(localStorage.getItem("openroot.fs.expanded") ?? "[\"profile\",\"skills\",\"projects\",\"developer\",\"system\"]"));
 let favorites = new Set<string>(JSON.parse(localStorage.getItem("openroot.favorites") ?? "[\"profile/home\",\"projects/openroot\",\"professional/architecture\"]"));
 
 const recruiterViews = new Set<InspectorView>(["profile", "projects", "skills", "contact"]);
@@ -139,6 +141,25 @@ const fsTree: FsNode[] = [
       { id: "professional/architecture", label: "architecture", icon: "system", type: "file", view: "architecture", command: "cat /architecture", meta: "system" },
       { id: "professional/case-studies", label: "case.studies", icon: "project", type: "file", view: "cases", command: "cat /case-studies", meta: "proof" },
       { id: "professional/downloads", label: "downloads", icon: "pdf", type: "file", view: "downloads", command: "cat /downloads", meta: "static" }
+    ]
+  },
+
+  {
+    id: "developer",
+    label: "developer",
+    icon: "folder",
+    type: "folder",
+    view: "system",
+    meta: "dx",
+    children: [
+      { id: "developer/api", label: "api.contract", icon: "docs", type: "file", view: "system", command: "api endpoints", meta: "json" },
+      { id: "developer/json", label: "json.engine", icon: "file", type: "file", view: "system", command: "json contract", meta: "schema" },
+      { id: "developer/plugins", label: "plugin.system", icon: "system", type: "file", view: "system", command: "plugins list", meta: "runtime" },
+      { id: "developer/extensions", label: "extensions.map", icon: "graph", type: "file", view: "system", command: "extensions map", meta: "sdk" },
+      { id: "developer/cli", label: "cli.commands", icon: "terminal", type: "file", view: "system", command: "cli", meta: "shell" },
+      { id: "developer/importers", label: "importers", icon: "docs", type: "file", view: "system", command: "importers", meta: "in" },
+      { id: "developer/exporters", label: "exporters", icon: "docs", type: "file", view: "system", command: "exporters", meta: "out" },
+      { id: "developer/testing", label: "testing.gates", icon: "security", type: "file", view: "system", command: "testing gates", meta: "ci" }
     ]
   },
   {
@@ -219,17 +240,11 @@ function renderFsNodes(nodes: FsNode[], depth = 0): string {
 
 function fileTree() {
   const count = flatten(fsTree).filter((node) => node.type === "file").length;
-  const favoriteNodes = [...favorites]
-    .map((id) => flatten(fsTree).find((node) => node.id === id))
-    .filter(Boolean) as Array<FsNode & { path: string; parents: string[] }>;
   return `
     <div class="fs-search">
       <img class="ui-icon" src="/assets/icons/file.svg" alt="" aria-hidden="true" />
       <input data-fs-search value="${fsQuery}" placeholder="Search filesystem..." aria-label="Search filesystem" />
       <span>${count}</span>
-    </div>
-    <div class="favorite-strip" aria-label="Favorites">
-      ${favoriteNodes.map((node) => `<button data-favorite-open="${node.id}">${icon(node.icon, node.label)}</button>`).join("") || "<span>No favorites</span>"}
     </div>
     <div class="fs-actions">
       <button data-fs-action="expand">Expand all</button>
@@ -445,6 +460,10 @@ const paletteCommands = [
   { label: "Desktop Status", command: "desktop", view: "profile" as InspectorView, hint: "terminal" },
   { label: "Open GitHub", command: "open github", view: "contact" as InspectorView, hint: "external" },
   { label: "Open LinkedIn", command: "open linkedin", view: "contact" as InspectorView, hint: "external" },
+  { label: "Developer Experience", command: "devx", view: "system" as InspectorView, hint: "dx" },
+  { label: "API Endpoints", command: "api endpoints", view: "system" as InspectorView, hint: "json" },
+  { label: "Plugin Registry", command: "plugins list", view: "system" as InspectorView, hint: "runtime" },
+  { label: "Testing Gates", command: "testing gates", view: "system" as InspectorView, hint: "ci" },
   { label: "Clear Terminal", command: "clear", view: "system" as InspectorView, hint: "system" }
 ];
 
@@ -482,7 +501,7 @@ function render() {
         <div class="brand">
           <span class="logo">&gt;_</span>
           <strong>OpenRoot OS</strong>
-          <em>OS Release 5</em>
+          <em>OS Release 6</em>
         </div>
 
         ${breadcrumb()}
@@ -522,13 +541,13 @@ function render() {
       ${commandPalette()}
 
       <footer class="statusbar">
-        <span>OpenRoot OS Release 5</span>
+        <span>OpenRoot OS Release 6</span>
         <span>PANEL: ${currentInspectorView.toUpperCase()}</span>
         <span>PATH: ${activePath}</span>
         <span>STATIC: GITHUB PAGES</span>
         <span>FS: RESIZABLE</span>
         <span>SEARCH: READY</span>
-        <span>R5: OPENROOT OS</span>
+        <span>R6: DEVELOPER EXPERIENCE</span>
       </footer>
     </main>
   `;
@@ -656,7 +675,7 @@ function showBoot() {
     <section class="boot">
       <div>
         <pre>${openRootTheme.ascii}</pre>
-        <p>Booting OpenRoot OS Release 5...</p>
+        <p>Booting OpenRoot OS Release 6...</p>
       </div>
     </section>
   `;
@@ -669,4 +688,4 @@ setTimeout(() => {
   render();
 }, 400);
 
-/* OS Release 5 production baseline: recruiter-focused inspector, terminal-first OS commands, desktop command layer, simplified controls and fixed right sidebar header. */
+/* OS Release 6 production baseline: developer experience layer, static API contract, JSON engine docs, plugin registry, CLI map and release gates. */

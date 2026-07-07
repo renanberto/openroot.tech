@@ -1,7 +1,7 @@
 {
   "name": "@openroot/app-renanberto",
   "private": true,
-  "version": "5.0.0-prod",
+  "version": "6.0.0-prod",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",

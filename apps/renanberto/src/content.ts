@@ -18,6 +18,7 @@ import caseStudies from "../content/knowledge/case-studies/case-studies.json";
 import downloads from "../content/knowledge/downloads/downloads.json";
 import seo from "../content/knowledge/seo/seo.json";
 import accessibility from "../content/knowledge/accessibility/accessibility.json";
+import developer from "../content/knowledge/developer/developer.json";
 
 export const graph = createKnowledgeGraph({ skills, projects, research });
 
@@ -40,5 +41,6 @@ export const knowledge: KnowledgeFile[] = [
   { path: "/downloads", title: "Downloads", kind: "downloads", content: downloads },
   { path: "/seo", title: "SEO", kind: "seo", content: seo },
   { path: "/accessibility", title: "Accessibility", kind: "accessibility", content: accessibility },
+  { path: "/developer", title: "Developer Experience", kind: "developer", content: developer },
   { path: "/graph", title: "Knowledge Graph", kind: "graph", content: graph }
 ];

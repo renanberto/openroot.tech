@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 const checks = [
   ["index", "apps/renanberto/index.html", ['<div id="app"></div>', 'src="/src/main.ts"', "favicon.svg"]],
   ["vite", "apps/renanberto/vite.config.ts", ['root: "apps/renanberto"', 'base: "/"']],
-  ["main", "apps/renanberto/src/main.ts", ["OS Release 5", "renderInspectorPanel", "inspectorViewFor", "terminalApi?.focus"]],
+  ["main", "apps/renanberto/src/main.ts", ["OS Release 6", "createDeveloperPlugin", "renderInspectorPanel", "inspectorViewFor", "terminalApi?.focus"]],
   ["terminal", "packages/terminal/src/index.ts", ["runCommand", "promptLabel", "focusInput"]],
   ["inspector", "packages/profile/src/index.ts", ["renderInspector", "friendly-profile", "data-inspector-tab"]],
   ["css", "apps/renanberto/src/styles.css", ["ui-icon", "friendly-profile", "body { overflow: hidden"]],
@@ -31,4 +31,4 @@ for (const [label, file, tokens] of checks) {
 
 if (!ok) process.exit(1);
 
-console.log("OpenRoot OS Release 5 consistency validation passed.");
+console.log("OpenRoot OS Release 6 consistency validation passed.");

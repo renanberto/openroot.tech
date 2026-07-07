@@ -10,12 +10,12 @@ export function createSystemPlugin(): OpenRootPlugin {
         description: "Show OpenRoot runtime status.",
         run() {
           return [
-            "OpenRoot OS Release 5",
-            "Build: OS Release 5 / PROD",
+            "OpenRoot OS Release 6",
+            "Build: OS Release 6 / PROD",
             "Runtime: browser",
             "Host: GitHub Pages",
             "Backend: none - static runtime",
-            "Modes: terminal, filesystem, recruiter inspector, desktop command layer",
+            "Modes: terminal, filesystem, recruiter inspector, desktop command layer, developer experience layer",
             "State: online"
           ].join("\n");
         }
@@ -114,7 +114,7 @@ export function createSystemPlugin(): OpenRootPlugin {
         run() {
           return [
             "Notifications",
-            "  Release 5 active",
+            "  Release 6 active",
             "  Static build target: GitHub Pages",
             "  Recruiter inspector: simplified",
             "  Terminal: primary access for technical content"

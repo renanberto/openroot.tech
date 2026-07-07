@@ -11,7 +11,8 @@ const required = [
   "robots.txt",
   "sitemap.xml",
   "api/knowledge.json",
-  "api/health.json"
+  "api/health.json",
+  "api/developer.json"
 ];
 
 let ok = true;

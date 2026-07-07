@@ -1794,21 +1794,45 @@ body.is-resizing-inspector {
 }
 
 .favorite-strip {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   gap: 6px;
-  overflow-x: auto;
+  max-height: 116px;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 0 12px 10px;
+  scrollbar-width: thin;
 }
 
 .favorite-strip button,
 .favorite-strip span {
-  flex: 0 0 auto;
+  min-width: 0;
+  width: 100%;
   border: 1px solid var(--line);
   background: #101722;
   color: var(--muted);
   padding: 6px 8px;
   font-size: 11px;
   border-radius: 6px;
+}
+
+.favorite-strip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  text-align: left;
+}
+
+.favorite-strip button .ui-icon {
+  flex: 0 0 13px;
+}
+
+.favorite-strip button span,
+.favorite-strip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .favorite-strip button:hover {
@@ -2100,9 +2124,14 @@ body.is-resizing-inspector {
 
   .terminal-quick,
   .inspector-primary-tabs,
-  .inspector-subtabs,
-  .favorite-strip {
+  .inspector-subtabs {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .favorite-strip {
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    max-height: 104px;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -2124,5 +2153,68 @@ body.is-resizing-inspector {
     grid-template-columns: 1fr !important;
     gap: 4px;
     padding: 8px;
+  }
+}
+
+
+/* Release 5.1 sidebar hotfix: favorites stay as star markers only; action bars are compact and resilient. */
+.favorite-strip {
+  display: none !important;
+}
+
+.top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.top-actions select,
+.top-actions button {
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fs-actions {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: 6px;
+  padding: 0 12px 10px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+
+.fs-actions button {
+  min-width: 0;
+  width: 100%;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  .top-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .top-actions select,
+  .top-actions button {
+    flex: 1 1 112px;
+  }
+
+  .fs-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
