@@ -1,26 +1,46 @@
 # OpenRoot OS
 
-Portfolio estatico estilo desktop OS/terminal para openroot.tech.
+OpenRoot OS is a static portfolio operating-system experience for openroot.tech.
 
-## Release atual
+Current version: **5.0.0-prod**
+Current release: **OS Release 5 - OpenRoot OS**
 
-**OS Release 1 / PROD**
-
-Este e o primeiro baseline real para producao. Historico de releases experimentais foi removido do pacote.
-
-## Rodar local
+## Run locally
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-## Validar producao
+## Production validation
 
 ```bash
 npm run rc:check
 ```
 
+This runs project validation, content validation, architecture checks, feature checks, consistency checks, typecheck, production build, GitHub Pages output validation and static audit.
+
 ## Deploy
 
-O deploy usa GitHub Actions e publica `apps/renanberto/dist` no GitHub Pages.
+GitHub Pages deploys from:
+
+```text
+apps/renanberto/dist
+```
+
+Workflow:
+
+```text
+.github/workflows/pages.yml
+```
+
+## Roadmap
+
+- Operational roadmap: `docs/ROADMAP.md`
+- Release 2 execution notes: `docs/releases/Release-02.md`
+- Release 3 execution notes: `docs/releases/Release-03.md`
+- Release 4 execution notes: `docs/releases/Release-04.md`
+- Release 5 execution notes: `docs/releases/Release-05.md`
+- Changelog: `CHANGELOG.md`
+- Release notes: `RELEASE_NOTES.md`
+- Feature matrix: `FEATURE_MATRIX.md`

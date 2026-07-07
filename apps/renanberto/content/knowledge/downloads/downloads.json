@@ -1,0 +1,20 @@
+{
+  "summary": "Static download targets exposed by the portfolio. Missing assets stay explicit until files are added.",
+  "items": [
+    {
+      "label": "Resume PDF",
+      "path": "/assets/resume.pdf",
+      "status": "placeholder"
+    },
+    {
+      "label": "Knowledge API",
+      "path": "/api/knowledge.json",
+      "status": "available"
+    },
+    {
+      "label": "Health API",
+      "path": "/api/health.json",
+      "status": "available"
+    }
+  ]
+}

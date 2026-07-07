@@ -476,5 +476,161 @@
         "description": "Tools and systems that make operations safer, simpler and more observable."
       }
     ]
+  },
+  "certifications": {
+    "summary": "Certification and credential signals are represented as practical engineering evidence until public certificate files are mounted.",
+    "items": [
+      {
+        "title": "Cloud and AWS operations",
+        "status": "evidence-based",
+        "evidence": [
+          "AWS WAF and CloudFront hardening cases",
+          "Lambda, SSM, DynamoDB and SNS automation",
+          "IAM-aware operational workflows"
+        ]
+      },
+      {
+        "title": "Kubernetes and platform engineering",
+        "status": "evidence-based",
+        "evidence": [
+          "Kubernetes operations",
+          "Helm and containerized delivery",
+          "CI/CD and production runbooks"
+        ]
+      },
+      {
+        "title": "AI engineering workflows",
+        "status": "active learning",
+        "evidence": [
+          "RAG workflow design",
+          "Agent-based repository understanding",
+          "Local/cloud LLM routing"
+        ]
+      }
+    ]
+  },
+  "articles": {
+    "summary": "Writing backlog for professional content that explains engineering decisions, tradeoffs and reusable patterns.",
+    "items": [
+      {
+        "title": "A portfolio can be a product",
+        "status": "draft",
+        "topic": "How OpenRoot OS turns structured career content into an interactive technical system."
+      },
+      {
+        "title": "Security controls need observability",
+        "status": "outline",
+        "topic": "Lessons from WAF, CloudFront and traffic-control work."
+      },
+      {
+        "title": "Model choice is architecture",
+        "status": "outline",
+        "topic": "Why AI workflows need routing, latency, cost and evidence strategies."
+      }
+    ]
+  },
+  "gallery": {
+    "summary": "Gallery entries describe visual artifacts and screenshots planned for the static portfolio.",
+    "items": [
+      {
+        "title": "OpenRoot OS shell",
+        "type": "interface",
+        "description": "Terminal, filesystem, inspector and command palette working together as the primary portfolio surface."
+      },
+      {
+        "title": "Knowledge graph",
+        "type": "system map",
+        "description": "Content connections between skills, projects, research topics and professional evidence."
+      },
+      {
+        "title": "Recruiter tour",
+        "type": "workflow",
+        "description": "Guided path through profile, skills, projects and contact information."
+      }
+    ]
+  },
+  "architecture": {
+    "summary": "OpenRoot OS is a static TypeScript monorepo with reusable packages, structured knowledge content and a GitHub Pages deployment target.",
+    "layers": [
+      {
+        "name": "Application shell",
+        "details": "Vite app that composes the terminal, filesystem, inspector, themes and command palette."
+      },
+      {
+        "name": "Runtime packages",
+        "details": "Core command registry, shell runtime, virtual filesystem, terminal renderer, profile renderer and plugins."
+      },
+      {
+        "name": "Knowledge content",
+        "details": "JSON content mounted into the virtual filesystem and exported to static public API files."
+      },
+      {
+        "name": "Deployment",
+        "details": "Static GitHub Pages build with validation, content generation and static audit steps."
+      }
+    ]
+  },
+  "caseStudies": {
+    "summary": "Case studies convert project entries into problem, constraint, decision and impact narratives.",
+    "items": [
+      {
+        "title": "OpenRoot OS",
+        "problem": "Generic portfolios do not expose engineering judgment.",
+        "decision": "Use an operating-system metaphor with a real filesystem, terminal commands and structured knowledge.",
+        "impact": "Makes portfolio content inspectable, searchable and reusable."
+      },
+      {
+        "title": "AWS WAF Security Cases",
+        "problem": "Abusive traffic needs controls that do not block legitimate users.",
+        "decision": "Combine edge rules, bot controls, CAPTCHA strategy and visibility.",
+        "impact": "Frames security as an operational traffic-management problem."
+      },
+      {
+        "title": "Jira + Confluence AI",
+        "problem": "Support knowledge is often repeated manually.",
+        "decision": "Ground recommendations in retrieved evidence instead of free-form generation.",
+        "impact": "Shows practical AI workflow design."
+      }
+    ]
+  },
+  "downloads": {
+    "summary": "Static download targets exposed by the portfolio. Missing assets stay explicit until files are added.",
+    "items": [
+      {
+        "label": "Resume PDF",
+        "path": "/assets/resume.pdf",
+        "status": "placeholder"
+      },
+      {
+        "label": "Knowledge API",
+        "path": "/api/knowledge.json",
+        "status": "available"
+      },
+      {
+        "label": "Health API",
+        "path": "/api/health.json",
+        "status": "available"
+      }
+    ]
+  },
+  "seo": {
+    "summary": "SEO baseline for openroot.tech with static metadata, sitemap, robots file and content-rich public pages.",
+    "checks": [
+      "Static title and meta description",
+      "Sitemap available at /sitemap.xml",
+      "Robots file available at /robots.txt",
+      "Public knowledge API available at /api/knowledge.json",
+      "Readable professional content in inspector panels"
+    ]
+  },
+  "accessibility": {
+    "summary": "Accessibility baseline focused on keyboard navigation, semantic labels, visible focus paths and readable static content.",
+    "checks": [
+      "Command palette opens from keyboard",
+      "Filesystem search has an accessible label",
+      "Inspector tabs are buttons",
+      "Decorative icons are hidden from assistive technology",
+      "Content remains available as text inside static panels"
+    ]
   }
 }

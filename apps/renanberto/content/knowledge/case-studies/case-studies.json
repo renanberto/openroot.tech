@@ -1,0 +1,23 @@
+{
+  "summary": "Case studies convert project entries into problem, constraint, decision and impact narratives.",
+  "items": [
+    {
+      "title": "OpenRoot OS",
+      "problem": "Generic portfolios do not expose engineering judgment.",
+      "decision": "Use an operating-system metaphor with a real filesystem, terminal commands and structured knowledge.",
+      "impact": "Makes portfolio content inspectable, searchable and reusable."
+    },
+    {
+      "title": "AWS WAF Security Cases",
+      "problem": "Abusive traffic needs controls that do not block legitimate users.",
+      "decision": "Combine edge rules, bot controls, CAPTCHA strategy and visibility.",
+      "impact": "Frames security as an operational traffic-management problem."
+    },
+    {
+      "title": "Jira + Confluence AI",
+      "problem": "Support knowledge is often repeated manually.",
+      "decision": "Ground recommendations in retrieved evidence instead of free-form generation.",
+      "impact": "Shows practical AI workflow design."
+    }
+  ]
+}

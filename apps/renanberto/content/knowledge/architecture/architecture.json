@@ -1,0 +1,21 @@
+{
+  "summary": "OpenRoot OS is a static TypeScript monorepo with reusable packages, structured knowledge content and a GitHub Pages deployment target.",
+  "layers": [
+    {
+      "name": "Application shell",
+      "details": "Vite app that composes the terminal, filesystem, inspector, themes and command palette."
+    },
+    {
+      "name": "Runtime packages",
+      "details": "Core command registry, shell runtime, virtual filesystem, terminal renderer, profile renderer and plugins."
+    },
+    {
+      "name": "Knowledge content",
+      "details": "JSON content mounted into the virtual filesystem and exported to static public API files."
+    },
+    {
+      "name": "Deployment",
+      "details": "Static GitHub Pages build with validation, content generation and static audit steps."
+    }
+  ]
+}

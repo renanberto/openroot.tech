@@ -1,0 +1,10 @@
+{
+  "summary": "SEO baseline for openroot.tech with static metadata, sitemap, robots file and content-rich public pages.",
+  "checks": [
+    "Static title and meta description",
+    "Sitemap available at /sitemap.xml",
+    "Robots file available at /robots.txt",
+    "Public knowledge API available at /api/knowledge.json",
+    "Readable professional content in inspector panels"
+  ]
+}

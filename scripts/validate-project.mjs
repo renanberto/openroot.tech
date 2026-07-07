@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 
 const required = [
   "README.md",
-  "OS_RELEASE_1_PROD.md",
+  "OS_RELEASE_5_PROD.md",
   "apps/renanberto/index.html",
   "apps/renanberto/src/main.ts",
   "apps/renanberto/src/content.ts",
@@ -30,4 +30,4 @@ for (const file of required) {
 
 if (!ok) process.exit(1);
 
-console.log("OpenRoot OS Release 1 project validation passed.");
+console.log("OpenRoot OS Release 5 project validation passed.");

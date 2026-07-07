@@ -1,0 +1,20 @@
+{
+  "summary": "Gallery entries describe visual artifacts and screenshots planned for the static portfolio.",
+  "items": [
+    {
+      "title": "OpenRoot OS shell",
+      "type": "interface",
+      "description": "Terminal, filesystem, inspector and command palette working together as the primary portfolio surface."
+    },
+    {
+      "title": "Knowledge graph",
+      "type": "system map",
+      "description": "Content connections between skills, projects, research topics and professional evidence."
+    },
+    {
+      "title": "Recruiter tour",
+      "type": "workflow",
+      "description": "Guided path through profile, skills, projects and contact information."
+    }
+  ]
+}

@@ -2,5 +2,5 @@
   "status": "ok",
   "runtime": "static",
   "host": "github-pages",
-  "build": "os-release-1-prod"
+  "build": "os-release-5-prod"
 }

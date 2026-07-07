@@ -12,6 +12,14 @@ const topics: Record<string, string> = {
   research: "/research",
   contact: "/contact",
   experience: "/experience",
+  certifications: "/certifications",
+  articles: "/articles",
+  gallery: "/gallery",
+  architecture: "/architecture",
+  cases: "/case-studies",
+  downloads: "/downloads",
+  seo: "/seo",
+  accessibility: "/accessibility",
   usage: "/usage",
   resume: "/resume",
   current: "/current",
@@ -164,6 +172,58 @@ export function createPortfolioPlugin(fs: VirtualFileSystem): OpenRootPlugin {
         description: "List available project stories.",
         run() {
           return get(fs, "/projects").projects.map((p: any) => `${p.id.padEnd(10)} ${p.title}`).join("\n");
+        }
+      },
+      {
+        name: "viewer",
+        description: "Open an interactive viewer topic.",
+        usage: "viewer projects|architecture|cases",
+        run(args) {
+          const target = args[0] ?? "projects";
+          if (target === "projects") return "Project Viewer: use the Projects inspector panel or run: stories, project <id>, story <id>";
+          if (target === "architecture") return get(fs, "/architecture").layers.map((layer: any, index: number) => `${index + 1}. ${layer.name}\n  ${layer.details}`).join("\n\n");
+          if (target === "cases") return get(fs, "/case-studies").items.map((item: any) => `${item.title}\n  Problem: ${item.problem}\n  Decision: ${item.decision}\n  Impact: ${item.impact}`).join("\n\n");
+          return "usage: viewer projects|architecture|cases";
+        }
+      },
+      {
+        name: "architecture",
+        description: "Show architecture layers.",
+        run() {
+          return get(fs, "/architecture").layers.map((layer: any) => `${layer.name}\n  ${layer.details}`).join("\n\n");
+        }
+      },
+      {
+        name: "shortcuts",
+        description: "Show keyboard shortcuts.",
+        run() {
+          return [
+            "Keyboard shortcuts",
+            "  Ctrl+K       Command palette",
+            "  Escape       Close command palette",
+            "  Alt+1        Profile",
+            "  Alt+2        Projects",
+            "  Alt+3        Skills",
+            "  Alt+4        Experience",
+            "  Alt+5        Architecture",
+            "  Alt+6        Case Studies",
+            "  Alt+7        Contact",
+            "  Ctrl+L       Clear terminal"
+          ].join("\n");
+        }
+      },
+      {
+        name: "favorites",
+        description: "Show favorite entry points.",
+        run() {
+          return [
+            "Favorite entry points",
+            "  /profile/home",
+            "  /projects/openroot",
+            "  /professional/architecture",
+            "",
+            "Use the star buttons in the filesystem to persist your own favorites."
+          ].join("\n");
         }
       },
       {

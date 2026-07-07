@@ -10,12 +10,12 @@ export function createSystemPlugin(): OpenRootPlugin {
         description: "Show OpenRoot runtime status.",
         run() {
           return [
-            "OpenRoot OS Release 1",
-            "Build: OS Release 1 / PROD",
+            "OpenRoot OS Release 5",
+            "Build: OS Release 5 / PROD",
             "Runtime: browser",
             "Host: GitHub Pages",
             "Backend: none - static runtime",
-            "Modes: terminal, filesystem, inspector",
+            "Modes: terminal, filesystem, recruiter inspector, desktop command layer",
             "State: online"
           ].join("\n");
         }
@@ -58,6 +58,94 @@ export function createSystemPlugin(): OpenRootPlugin {
             "openroot: plugins registered",
             "openroot: inspector online",
             "openroot: github pages target verified"
+          ].join("\n");
+        }
+      },
+      {
+        name: "desktop",
+        description: "Show OpenRoot OS desktop summary.",
+        run() {
+          return [
+            "OpenRoot Desktop",
+            "  Window manager: shell grid with terminal, filesystem and recruiter inspector",
+            "  Applications: profile, projects, skills, contact, files, terminal, settings",
+            "  Dock: terminal-first commands exposed through help and command palette",
+            "  Notifications: static runtime status and release validation",
+            "  Widgets: mount status, favorites, breadcrumbs and statusbar",
+            "  UX: inspector reduced to recruiter domains; technical domains stay terminal-first"
+          ].join("\n");
+        }
+      },
+      {
+        name: "apps",
+        description: "List OpenRoot OS applications.",
+        run() {
+          return [
+            "Applications",
+            "  profile      Recruiter summary",
+            "  projects     Proof of work",
+            "  skills       Evidence-based skills",
+            "  contact      Contact endpoints",
+            "  files        Knowledge filesystem",
+            "  terminal     Full technical access",
+            "  settings     Runtime preferences"
+          ].join("\n");
+        }
+      },
+      {
+        name: "dock",
+        description: "Show dock commands.",
+        run() {
+          return [
+            "Dock",
+            "  help",
+            "  whoami",
+            "  projects",
+            "  skills",
+            "  contact",
+            "  desktop",
+            "  settings"
+          ].join("\n");
+        }
+      },
+      {
+        name: "notifications",
+        description: "Show runtime notifications.",
+        run() {
+          return [
+            "Notifications",
+            "  Release 5 active",
+            "  Static build target: GitHub Pages",
+            "  Recruiter inspector: simplified",
+            "  Terminal: primary access for technical content"
+          ].join("\n");
+        }
+      },
+      {
+        name: "widgets",
+        description: "List desktop widgets.",
+        run() {
+          return [
+            "Widgets",
+            "  Breadcrumb",
+            "  Mount status",
+            "  Favorites",
+            "  Statusbar",
+            "  Theme selector"
+          ].join("\n");
+        }
+      },
+      {
+        name: "settings",
+        description: "Show runtime settings.",
+        run() {
+          return [
+            "Settings",
+            "  Filesystem width: persisted locally",
+            "  Inspector width: persisted locally",
+            "  Expanded folders: persisted locally",
+            "  Favorites: persisted locally",
+            "  Theme: use theme list and theme set <name>"
           ].join("\n");
         }
       }

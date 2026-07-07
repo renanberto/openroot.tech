@@ -19,7 +19,7 @@ const fs = new VirtualFileSystem(knowledge);
 
 const runtime = createOpenRoot({
   appId: "renanberto",
-  version: "OpenRoot OS Release 1 / PROD",
+  version: "OpenRoot OS Release 5 / PROD",
   defaultMode: "profile"
 });
 
@@ -37,7 +37,20 @@ const shell = new ShellRuntime(runtime.commands, {
   emit: runtime.events.emit.bind(runtime.events)
 });
 
-type InspectorView = "profile" | "tour" | "projects" | "skills" | "contact" | "system";
+type InspectorView =
+  | "profile"
+  | "tour"
+  | "projects"
+  | "skills"
+  | "experience"
+  | "certifications"
+  | "articles"
+  | "gallery"
+  | "architecture"
+  | "cases"
+  | "downloads"
+  | "contact"
+  | "system";
 type FsNode = {
   id: string;
   label: string;
@@ -54,9 +67,20 @@ let terminalApi: { runCommand(command: string): Promise<void>; focus(): void; cl
 let inspectorView: { destroy(): void } | null = null;
 let activeNodeId = "profile/home";
 let activePath = "/profile/home";
-let query = "";
+let fsQuery = "";
+let paletteQuery = "";
+let commandPaletteOpen = false;
+let documentEventsWired = false;
 let filesystemWidth = Number(localStorage.getItem("openroot.fs.width") ?? "320");
+let inspectorWidth = Number(localStorage.getItem("openroot.inspector.width") ?? "500");
 let expandedFolders = new Set<string>(JSON.parse(localStorage.getItem("openroot.fs.expanded") ?? "[\"profile\",\"skills\",\"projects\",\"system\"]"));
+let favorites = new Set<string>(JSON.parse(localStorage.getItem("openroot.favorites") ?? "[\"profile/home\",\"projects/openroot\",\"professional/architecture\"]"));
+
+const recruiterViews = new Set<InspectorView>(["profile", "projects", "skills", "contact"]);
+
+function inspectorViewFor(view: InspectorView): InspectorView | undefined {
+  return recruiterViews.has(view) ? view : undefined;
+}
 
 const fsTree: FsNode[] = [
   {
@@ -101,6 +125,23 @@ const fsTree: FsNode[] = [
     ]
   },
   {
+    id: "professional",
+    label: "professional",
+    icon: "folder",
+    type: "folder",
+    view: "experience",
+    meta: "content",
+    children: [
+      { id: "professional/experience", label: "experience.map", icon: "resume", type: "file", view: "experience", command: "cat /experience", meta: "roles" },
+      { id: "professional/certifications", label: "certifications", icon: "docs", type: "file", view: "certifications", command: "cat /certifications", meta: "signals" },
+      { id: "professional/articles", label: "articles", icon: "docs", type: "file", view: "articles", command: "cat /articles", meta: "writing" },
+      { id: "professional/gallery", label: "gallery", icon: "graph", type: "file", view: "gallery", command: "cat /gallery", meta: "visuals" },
+      { id: "professional/architecture", label: "architecture", icon: "system", type: "file", view: "architecture", command: "cat /architecture", meta: "system" },
+      { id: "professional/case-studies", label: "case.studies", icon: "project", type: "file", view: "cases", command: "cat /case-studies", meta: "proof" },
+      { id: "professional/downloads", label: "downloads", icon: "pdf", type: "file", view: "downloads", command: "cat /downloads", meta: "static" }
+    ]
+  },
+  {
     id: "system",
     label: "system",
     icon: "folder",
@@ -122,6 +163,14 @@ function saveExpanded() {
   localStorage.setItem("openroot.fs.expanded", JSON.stringify([...expandedFolders]));
 }
 
+function saveFavorites() {
+  localStorage.setItem("openroot.favorites", JSON.stringify([...favorites]));
+}
+
+function saveSession() {
+  localStorage.setItem("openroot.session", JSON.stringify({ activeNodeId, activePath, currentInspectorView }));
+}
+
 function flatten(nodes: FsNode[], parents: string[] = []): Array<FsNode & { path: string; parents: string[] }> {
   return nodes.flatMap((node) => {
     const path = `/${node.id}`;
@@ -136,8 +185,8 @@ function breadcrumb() {
 }
 
 function matches(node: FsNode) {
-  if (!query.trim()) return true;
-  const token = query.toLowerCase();
+  if (!fsQuery.trim()) return true;
+  const token = fsQuery.toLowerCase();
   return `${node.label} ${node.meta ?? ""} ${node.command ?? ""}`.toLowerCase().includes(token);
 }
 
@@ -150,8 +199,9 @@ function renderFsNodes(nodes: FsNode[], depth = 0): string {
     .filter(subtreeMatches)
     .map((node) => {
       const isFolder = node.type === "folder";
-      const isExpanded = expandedFolders.has(node.id) || Boolean(query.trim());
+      const isExpanded = expandedFolders.has(node.id) || Boolean(fsQuery.trim());
       const isActive = activeNodeId === node.id;
+      const isFavorite = favorites.has(node.id);
       const visibleChildren = node.children && isExpanded ? renderFsNodes(node.children, depth + 1) : "";
       const twist = isFolder ? `<span class="twisty">${isExpanded ? "v" : ">"}</span>` : `<span class="twisty file-dot">-</span>`;
       return `
@@ -159,6 +209,7 @@ function renderFsNodes(nodes: FsNode[], depth = 0): string {
           <button class="fs-node ${isFolder ? "is-folder" : "is-file"} ${isExpanded ? "is-open" : ""} ${isActive ? "active" : ""}" style="--depth:${depth}" data-node-id="${node.id}" data-node-type="${node.type}" data-inspector-view="${node.view}" data-fs-command="${node.command ?? ""}">
             ${twist}${icon(node.icon, node.label)}<small>${node.meta ?? ""}</small>
           </button>
+          <button class="favorite-toggle ${isFavorite ? "active" : ""}" data-favorite-node="${node.id}" title="${isFavorite ? "Remove favorite" : "Add favorite"}">${isFavorite ? "★" : "☆"}</button>
           ${visibleChildren}
         </div>
       `;
@@ -168,11 +219,17 @@ function renderFsNodes(nodes: FsNode[], depth = 0): string {
 
 function fileTree() {
   const count = flatten(fsTree).filter((node) => node.type === "file").length;
+  const favoriteNodes = [...favorites]
+    .map((id) => flatten(fsTree).find((node) => node.id === id))
+    .filter(Boolean) as Array<FsNode & { path: string; parents: string[] }>;
   return `
     <div class="fs-search">
       <img class="ui-icon" src="/assets/icons/file.svg" alt="" aria-hidden="true" />
-      <input data-fs-search value="${query}" placeholder="Search filesystem..." aria-label="Search filesystem" />
+      <input data-fs-search value="${fsQuery}" placeholder="Search filesystem..." aria-label="Search filesystem" />
       <span>${count}</span>
+    </div>
+    <div class="favorite-strip" aria-label="Favorites">
+      ${favoriteNodes.map((node) => `<button data-favorite-open="${node.id}">${icon(node.icon, node.label)}</button>`).join("") || "<span>No favorites</span>"}
     </div>
     <div class="fs-actions">
       <button data-fs-action="expand">Expand all</button>
@@ -191,13 +248,14 @@ function renderInspectorPanel() {
   inspectorView = renderInspector(inspector, fs, {
     compact: true,
     title: "INSPECTOR SHELL",
-    view: currentInspectorView,
+    view: inspectorViewFor(currentInspectorView) ?? "profile",
     path: activePath
   } as any);
 }
 
 async function run(command: string, view?: InspectorView, printToTerminal = true) {
-  if (view) currentInspectorView = view;
+  const nextView = view ? inspectorViewFor(view) : undefined;
+  if (nextView) currentInspectorView = nextView;
   renderInspectorPanel();
   if (printToTerminal && command) await terminalApi?.runCommand(command);
 }
@@ -207,9 +265,10 @@ function setActiveNode(id: string) {
   if (!found) return;
   activeNodeId = found.id;
   activePath = found.path;
-  currentInspectorView = found.view;
+  currentInspectorView = inspectorViewFor(found.view) ?? currentInspectorView;
   found.parents.forEach((parent) => expandedFolders.add(parent));
   saveExpanded();
+  saveSession();
 }
 
 function showContextMenu(x: number, y: number, node: FsNode) {
@@ -223,6 +282,7 @@ function showContextMenu(x: number, y: number, node: FsNode) {
     <button data-context-action="terminal">Open in Terminal</button>
     <button data-context-action="copy">Copy Path</button>
     <button data-context-action="reveal">Reveal in Inspector</button>
+    <button data-context-action="favorite">${favorites.has(node.id) ? "Remove Favorite" : "Add Favorite"}</button>
     <hr />
     <button data-context-action="expand">Expand all</button>
     <button data-context-action="collapse">Collapse all</button>
@@ -240,6 +300,11 @@ function showContextMenu(x: number, y: number, node: FsNode) {
       if (action === "copy") await navigator.clipboard?.writeText(`/${node.id}`);
       if (action === "reveal") {
         setActiveNode(node.id);
+        render();
+      }
+      if (action === "favorite") {
+        favorites.has(node.id) ? favorites.delete(node.id) : favorites.add(node.id);
+        saveFavorites();
         render();
       }
       if (action === "expand") {
@@ -287,22 +352,144 @@ function wireFilesystemResize() {
   });
 }
 
+function wireInspectorResize() {
+  const handle = document.querySelector<HTMLElement>(".inspector-resize-handle");
+  if (!handle) return;
+  let startX = 0;
+  let startWidth = inspectorWidth;
+  const move = (event: MouseEvent) => {
+    const next = Math.min(760, Math.max(320, startWidth - (event.clientX - startX)));
+    inspectorWidth = next;
+    document.documentElement.style.setProperty("--inspector-width", `${next}px`);
+  };
+  const stop = () => {
+    localStorage.setItem("openroot.inspector.width", String(inspectorWidth));
+    document.body.classList.remove("is-resizing-inspector");
+    window.removeEventListener("mousemove", move);
+    window.removeEventListener("mouseup", stop);
+  };
+  handle.addEventListener("mousedown", (event) => {
+    startX = event.clientX;
+    startWidth = inspectorWidth;
+    document.body.classList.add("is-resizing-inspector");
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", stop);
+  });
+  handle.addEventListener("dblclick", () => {
+    inspectorWidth = 500;
+    localStorage.setItem("openroot.inspector.width", "500");
+    document.documentElement.style.setProperty("--inspector-width", "500px");
+  });
+}
+
+function focusInputAtEnd(selector: string) {
+  const input = document.querySelector<HTMLInputElement>(selector);
+  if (!input) return;
+  input.focus();
+  const end = input.value.length;
+  input.setSelectionRange(end, end);
+}
+
+function restoreSession() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("openroot.session") ?? "{}");
+    if (typeof saved.activeNodeId === "string" && flatten(fsTree).some((node) => node.id === saved.activeNodeId)) {
+      activeNodeId = saved.activeNodeId;
+      activePath = saved.activePath ?? activePath;
+      currentInspectorView = inspectorViewFor(saved.currentInspectorView ?? currentInspectorView) ?? "profile";
+    }
+  } catch {
+    saveSession();
+  }
+}
+
+function wireGlobalKeyboard() {
+  if (documentEventsWired) return;
+  documentEventsWired = true;
+  document.addEventListener("keydown", (event) => {
+    const target = event.target as HTMLElement | null;
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      commandPaletteOpen = !commandPaletteOpen;
+      paletteQuery = "";
+      render();
+      return;
+    }
+    if (event.key === "Escape" && commandPaletteOpen) {
+      commandPaletteOpen = false;
+      render();
+      return;
+    }
+    if (event.altKey && event.key >= "1" && event.key <= "7") {
+      event.preventDefault();
+      const views: InspectorView[] = ["profile", "projects", "skills", "contact"];
+      currentInspectorView = views[Number(event.key) - 1] ?? currentInspectorView;
+      saveSession();
+      renderInspectorPanel();
+      return;
+    }
+    if (target?.closest("input, textarea, select, [contenteditable='true']")) return;
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    terminalApi?.focus();
+  });
+}
+
+
+const paletteCommands = [
+  { label: "Open Profile", command: "whoami", view: "profile" as InspectorView, hint: "summary" },
+  { label: "Open Projects", command: "projects", view: "projects" as InspectorView, hint: "proof" },
+  { label: "Open Skills", command: "skills", view: "skills" as InspectorView, hint: "matrix" },
+  { label: "Open Contact", command: "contact", view: "contact" as InspectorView, hint: "connect" },
+  { label: "Search Kubernetes", command: "graph Kubernetes", view: "skills" as InspectorView, hint: "knowledge" },
+  { label: "Search AWS", command: "graph AWS", view: "projects" as InspectorView, hint: "knowledge" },
+  { label: "Desktop Status", command: "desktop", view: "profile" as InspectorView, hint: "terminal" },
+  { label: "Open GitHub", command: "open github", view: "contact" as InspectorView, hint: "external" },
+  { label: "Open LinkedIn", command: "open linkedin", view: "contact" as InspectorView, hint: "external" },
+  { label: "Clear Terminal", command: "clear", view: "system" as InspectorView, hint: "system" }
+];
+
+function commandPalette() {
+  if (!commandPaletteOpen) return "";
+  const token = paletteQuery.trim().toLowerCase();
+  const items = paletteCommands.filter((item) => !token || `${item.label} ${item.command} ${item.hint}`.toLowerCase().includes(token));
+  return `
+    <div class="palette-backdrop" data-close-palette>
+      <section class="command-palette" role="dialog" aria-label="Command palette">
+        <header>
+          <span>&gt;</span>
+          <input data-palette-search value="${paletteQuery}" placeholder="Search commands, files, projects, skills..." autofocus />
+        </header>
+        <div class="palette-results">
+          ${items.map((item, index) => `
+            <button data-palette-command="${item.command}" data-palette-view="${item.view}" class="${index === 0 ? "active" : ""}">
+              <strong>${item.label}</strong>
+              <span>${item.command}</span>
+              <small>${item.hint}</small>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function render() {
   document.documentElement.style.setProperty("--fs-width", `${filesystemWidth}px`);
+  document.documentElement.style.setProperty("--inspector-width", `${inspectorWidth}px`);
   app.innerHTML = `
     <main class="deck">
       <header class="topbar">
         <div class="brand">
           <span class="logo">&gt;_</span>
           <strong>OpenRoot OS</strong>
-          <em>OS Release 1</em>
+          <em>OS Release 5</em>
         </div>
 
         ${breadcrumb()}
 
         <div class="top-actions">
           <strong class="online">ONLINE</strong>
-          <button class="tour-badge" data-panel-view="tour" title="Recruiter Tour">${icon("tour", "Recruiter Tour")}</button>
+          <button class="palette-badge" data-command-palette title="Command Palette">CTRL K</button>
           <span>THEME</span>
           <select aria-label="Theme" data-theme-select>
             <option value="catppuccin">CATPPUCCIN</option>
@@ -328,17 +515,20 @@ function render() {
         </aside>
         <div class="fs-resize-handle" aria-label="Resize filesystem panel" role="separator"></div>
         <section id="terminal-panel" class="terminal-panel"></section>
+        <div class="inspector-resize-handle" aria-label="Resize inspector panel" role="separator"></div>
         <aside id="inspector-panel" class="inspector panel"></aside>
       </section>
 
+      ${commandPalette()}
+
       <footer class="statusbar">
-        <span>OpenRoot OS Release 1</span>
+        <span>OpenRoot OS Release 5</span>
         <span>PANEL: ${currentInspectorView.toUpperCase()}</span>
         <span>PATH: ${activePath}</span>
         <span>STATIC: GITHUB PAGES</span>
         <span>FS: RESIZABLE</span>
         <span>SEARCH: READY</span>
-        <span>PROD</span>
+        <span>R5: OPENROOT OS</span>
       </footer>
     </main>
   `;
@@ -353,21 +543,10 @@ function render() {
       terminalApi?.focus();
     }
   });
-  document.addEventListener("keydown", (event) => {
-    const target = event.target as HTMLElement | null;
-    if (target?.closest("input, textarea, select, [contenteditable='true']")) return;
-    if (event.metaKey || event.ctrlKey || event.altKey) return;
-    terminalApi?.focus();
-  });
+  wireGlobalKeyboard();
   renderInspectorPanel();
   wireFilesystemResize();
-
-  document.querySelectorAll<HTMLElement>("[data-panel-view]").forEach((button) => {
-    button.addEventListener("click", () => {
-      currentInspectorView = (button as HTMLElement).dataset.panelView as InspectorView;
-      renderInspectorPanel();
-    });
-  });
+  wireInspectorResize();
 
   document.querySelectorAll<HTMLButtonElement>("[data-command-shortcut]").forEach((button) => {
     button.addEventListener("click", () => run(button.dataset.commandShortcut ?? "help", undefined, true));
@@ -393,10 +572,29 @@ function render() {
     });
   });
 
+  document.querySelectorAll<HTMLButtonElement>("[data-favorite-node]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const id = button.dataset.favoriteNode ?? "";
+      favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+      saveFavorites();
+      render();
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-favorite-open]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveNode(button.dataset.favoriteOpen ?? "profile/home");
+      render();
+      const found = flatten(fsTree).find((node) => node.id === activeNodeId);
+      run(found?.command ?? "", found?.view, Boolean(found?.command));
+    });
+  });
+
   document.querySelector<HTMLInputElement>("[data-fs-search]")?.addEventListener("input", (event) => {
-    query = (event.target as HTMLInputElement).value;
+    fsQuery = (event.target as HTMLInputElement).value;
     render();
-    document.querySelector<HTMLInputElement>("[data-fs-search]")?.focus();
+    focusInputAtEnd("[data-fs-search]");
   });
 
   document.querySelectorAll<HTMLButtonElement>("[data-fs-action]").forEach((button) => {
@@ -418,6 +616,36 @@ function render() {
     run(`theme set ${value}`, "system", true);
   });
 
+  document.querySelector<HTMLButtonElement>("[data-command-palette]")?.addEventListener("click", () => {
+    commandPaletteOpen = true;
+    paletteQuery = "";
+    render();
+  });
+
+  document.querySelector<HTMLInputElement>("[data-palette-search]")?.addEventListener("input", (event) => {
+    paletteQuery = (event.target as HTMLInputElement).value;
+    render();
+    focusInputAtEnd("[data-palette-search]");
+  });
+
+  document.querySelector<HTMLInputElement>("[data-palette-search]")?.focus();
+
+  document.querySelectorAll<HTMLButtonElement>("[data-palette-command]").forEach((button) => {
+    button.addEventListener("click", () => {
+      commandPaletteOpen = false;
+      paletteQuery = "";
+      render();
+      run(button.dataset.paletteCommand ?? "help", button.dataset.paletteView as InspectorView | undefined, true);
+    });
+  });
+
+  document.querySelector<HTMLElement>("[data-close-palette]")?.addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) {
+      commandPaletteOpen = false;
+      render();
+    }
+  });
+
   document.addEventListener("click", (event) => {
     if (!(event.target as HTMLElement).closest(".context-menu")) document.querySelector(".context-menu")?.remove();
   }, { once: true });
@@ -428,7 +656,7 @@ function showBoot() {
     <section class="boot">
       <div>
         <pre>${openRootTheme.ascii}</pre>
-        <p>Booting OpenRoot OS Release 1...</p>
+        <p>Booting OpenRoot OS Release 5...</p>
       </div>
     </section>
   `;
@@ -437,7 +665,8 @@ function showBoot() {
 showBoot();
 setTimeout(() => {
   runtime.boot();
+  restoreSession();
   render();
 }, 400);
 
-/* OS Release 1 production baseline: filesystem search, context menu, active file indicator, resizable explorer, recruiter badge. */
+/* OS Release 5 production baseline: recruiter-focused inspector, terminal-first OS commands, desktop command layer, simplified controls and fixed right sidebar header. */

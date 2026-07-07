@@ -1,6 +1,6 @@
 import type { ShellRuntime } from "@openroot/shell";
 
-const starters = ["help", "ls", "whoami", "skills --ai", "project waf", "story waf", "theme list"];
+const starters = ["help"];
 
 interface TerminalOptions {
   compact?: boolean;
@@ -156,6 +156,16 @@ Profile
   resume               Show my resume
   skills --ai          Show AI skills
   project [id]         Show project details
+  viewer projects      Open viewer guidance
+  architecture         Show architecture layers
+  shortcuts            Show keyboard shortcuts
+  favorites            Show favorite entry points
+  desktop              Show OS desktop summary
+  apps                 List OS applications
+  dock                 Show dock commands
+  notifications        Show runtime notifications
+  widgets              List desktop widgets
+  settings             Show runtime settings
   tour                 Start interactive tour
 
 Open / Connect

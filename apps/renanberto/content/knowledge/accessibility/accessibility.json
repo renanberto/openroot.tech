@@ -1,0 +1,10 @@
+{
+  "summary": "Accessibility baseline focused on keyboard navigation, semantic labels, visible focus paths and readable static content.",
+  "checks": [
+    "Command palette opens from keyboard",
+    "Filesystem search has an accessible label",
+    "Inspector tabs are buttons",
+    "Decorative icons are hidden from assistive technology",
+    "Content remains available as text inside static panels"
+  ]
+}

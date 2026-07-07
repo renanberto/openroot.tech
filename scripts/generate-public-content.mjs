@@ -19,11 +19,19 @@ const knowledge = {
   experience: readJson(join(contentRoot, "experience", "experience.json")),
   usage: readJson(join(contentRoot, "usage", "usage.json")),
   resume: readJson(join(contentRoot, "resume", "resume.json")),
-  current: readJson(join(contentRoot, "current", "current.json"))
+  current: readJson(join(contentRoot, "current", "current.json")),
+  certifications: readJson(join(contentRoot, "certifications", "certifications.json")),
+  articles: readJson(join(contentRoot, "articles", "articles.json")),
+  gallery: readJson(join(contentRoot, "gallery", "gallery.json")),
+  architecture: readJson(join(contentRoot, "architecture", "architecture.json")),
+  caseStudies: readJson(join(contentRoot, "case-studies", "case-studies.json")),
+  downloads: readJson(join(contentRoot, "downloads", "downloads.json")),
+  seo: readJson(join(contentRoot, "seo", "seo.json")),
+  accessibility: readJson(join(contentRoot, "accessibility", "accessibility.json"))
 };
 
 mkdirSync(outRoot, { recursive: true });
 writeFileSync(join(outRoot, "knowledge.json"), JSON.stringify(knowledge, null, 2));
-writeFileSync(join(outRoot, "health.json"), JSON.stringify({ status: "ok", runtime: "static", host: "github-pages", build: "os-release-1-prod" }, null, 2));
+writeFileSync(join(outRoot, "health.json"), JSON.stringify({ status: "ok", runtime: "static", host: "github-pages", build: "os-release-5-prod" }, null, 2));
 
 console.log("Generated public/api static content.");

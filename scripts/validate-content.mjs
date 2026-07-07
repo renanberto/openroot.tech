@@ -14,7 +14,15 @@ const required = [
   "experience/experience.json",
   "usage/usage.json",
   "resume/resume.json",
-  "current/current.json"
+  "current/current.json",
+  "certifications/certifications.json",
+  "articles/articles.json",
+  "gallery/gallery.json",
+  "architecture/architecture.json",
+  "case-studies/case-studies.json",
+  "downloads/downloads.json",
+  "seo/seo.json",
+  "accessibility/accessibility.json"
 ];
 
 let ok = true;

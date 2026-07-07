@@ -1,0 +1,20 @@
+{
+  "summary": "Writing backlog for professional content that explains engineering decisions, tradeoffs and reusable patterns.",
+  "items": [
+    {
+      "title": "A portfolio can be a product",
+      "status": "draft",
+      "topic": "How OpenRoot OS turns structured career content into an interactive technical system."
+    },
+    {
+      "title": "Security controls need observability",
+      "status": "outline",
+      "topic": "Lessons from WAF, CloudFront and traffic-control work."
+    },
+    {
+      "title": "Model choice is architecture",
+      "status": "outline",
+      "topic": "Why AI workflows need routing, latency, cost and evidence strategies."
+    }
+  ]
+}

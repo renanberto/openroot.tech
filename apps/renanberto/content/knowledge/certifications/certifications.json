@@ -1,0 +1,32 @@
+{
+  "summary": "Certification and credential signals are represented as practical engineering evidence until public certificate files are mounted.",
+  "items": [
+    {
+      "title": "Cloud and AWS operations",
+      "status": "evidence-based",
+      "evidence": [
+        "AWS WAF and CloudFront hardening cases",
+        "Lambda, SSM, DynamoDB and SNS automation",
+        "IAM-aware operational workflows"
+      ]
+    },
+    {
+      "title": "Kubernetes and platform engineering",
+      "status": "evidence-based",
+      "evidence": [
+        "Kubernetes operations",
+        "Helm and containerized delivery",
+        "CI/CD and production runbooks"
+      ]
+    },
+    {
+      "title": "AI engineering workflows",
+      "status": "active learning",
+      "evidence": [
+        "RAG workflow design",
+        "Agent-based repository understanding",
+        "Local/cloud LLM routing"
+      ]
+    }
+  ]
+}
