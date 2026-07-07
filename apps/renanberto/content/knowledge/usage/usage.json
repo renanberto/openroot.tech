@@ -1,0 +1,59 @@
+{
+  "quickStart": [
+    {
+      "label": "Recruiter summary",
+      "command": "recruiter"
+    },
+    {
+      "label": "Engineering stack",
+      "command": "stack"
+    },
+    {
+      "label": "Project catalog",
+      "command": "stories"
+    },
+    {
+      "label": "Security case",
+      "command": "story waf"
+    },
+    {
+      "label": "Knowledge graph",
+      "command": "graph AWS"
+    },
+    {
+      "label": "Profile mode",
+      "command": "profile"
+    }
+  ],
+  "personas": [
+    {
+      "name": "Recruiter",
+      "path": [
+        "profile",
+        "recruiter",
+        "contact"
+      ],
+      "goal": "Understand fit quickly and reach out."
+    },
+    {
+      "name": "Engineer",
+      "path": [
+        "help",
+        "tree /",
+        "story openroot",
+        "graph TypeScript"
+      ],
+      "goal": "Inspect how the system thinks and how the runtime is structured."
+    },
+    {
+      "name": "Manager",
+      "path": [
+        "profile",
+        "roadmap",
+        "story waf",
+        "principles"
+      ],
+      "goal": "Understand impact, communication and decision-making."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "summary": "10+ years working across software engineering, DevOps, cloud infrastructure, Linux systems, automation, observability, security and production operations.",
+  "roles": [
+    {
+      "title": "Software Engineer + DevOps Engineer",
+      "focus": "Backend software, cloud platforms, Kubernetes, automation and production reliability.",
+      "signals": [
+        "Python",
+        "Go",
+        "Node.js",
+        "AWS",
+        "Kubernetes",
+        "Linux",
+        "Automation"
+      ]
+    },
+    {
+      "title": "Platform-minded Builder",
+      "focus": "Internal tools, CI/CD, operational workflows and developer experience.",
+      "signals": [
+        "GitHub Actions",
+        "Docker",
+        "Helm",
+        "Runbooks",
+        "Observability"
+      ]
+    },
+    {
+      "title": "AI-aware Engineer",
+      "focus": "Using LLMs, local models, RAG and agents to improve engineering workflows.",
+      "signals": [
+        "OpenAI",
+        "Anthropic",
+        "Ollama",
+        "LiteLLM",
+        "RAG",
+        "Agents"
+      ]
+    }
+  ]
+}

@@ -1,13 +1,36 @@
 {
-  "name": "openroot-tech",
-  "version": "0.2.4-content-engine",
+  "name": "openroot-os",
+  "version": "1.0.0-prod",
   "private": true,
-  "description": "OpenRoot OS with structured portfolio content engine for nonroot mode",
+  "description": "OpenRoot OS Release 1 - production baseline for openroot.tech.",
+  "type": "module",
   "scripts": {
-    "validate:js": "find js -name \"*.js\" -print0 | xargs -0 -n1 node --check",
-    "validate:site": "node scripts/validate-site.js",
-    "build:content": "node scripts/build-content.js",
-    "predeploy": "npm run validate:js && npm run validate:site"
+    "dev": "vite --host 0.0.0.0 --config apps/renanberto/vite.config.ts",
+    "build": "npm run validate:all && npm run generate:public-content && vite build --config apps/renanberto/vite.config.ts",
+    "preview": "vite preview --host 0.0.0.0 --config apps/renanberto/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "validate": "node scripts/validate-project.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:pages": "node scripts/validate-pages-output.mjs",
+    "generate:public-content": "node scripts/generate-public-content.mjs",
+    "test": "node scripts/validate-features.mjs",
+    "lint": "echo \"ESLint will be enabled in Main 5\"",
+    "format": "echo \"Prettier will be enabled in Main 5\"",
+    "validate:architecture": "node scripts/validate-architecture.mjs",
+    "validate:all": "npm run validate && npm run validate:content && npm run validate:architecture && npm run validate:features && npm run validate:consistency && npm run typecheck",
+    "audit:static": "node scripts/static-audit.mjs",
+    "validate:features": "node scripts/validate-features.mjs",
+    "rc:check": "npm run validate:all && npm run build && npm run validate:pages && npm run audit:static",
+    "validate:consistency": "node scripts/validate-consistency.mjs",
+    "build:prod": "npm run build"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.19"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

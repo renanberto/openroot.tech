@@ -1,0 +1,169 @@
+{
+  "projects": [
+    {
+      "id": "openroot",
+      "title": "OpenRoot OS",
+      "tag": "Framework",
+      "problem": "Technical portfolios usually look generic and fail to show how engineers think.",
+      "context": "The project started as a static terminal portfolio and evolved into a reusable operating-system-inspired framework.",
+      "constraints": [
+        "GitHub Pages friendly",
+        "Reusable by other engineers",
+        "Single source of truth for content"
+      ],
+      "solution": "Explorer Mode and Profile Mode powered by shared structured content, plugins and a virtual filesystem.",
+      "architecture": [
+        "Vite + TypeScript",
+        "Monorepo packages",
+        "Virtual filesystem",
+        "Shell runtime",
+        "Story engine",
+        "Knowledge graph"
+      ],
+      "stack": [
+        "TypeScript",
+        "Vite",
+        "Virtual Filesystem",
+        "Shell",
+        "Plugins",
+        "Profile Renderer"
+      ],
+      "impact": "Turns a personal portfolio into a reusable engineering product.",
+      "lessons": [
+        "A portfolio can be a product",
+        "The same content can serve technical and non-technical audiences"
+      ]
+    },
+    {
+      "id": "waf",
+      "title": "AWS WAF Security Cases",
+      "tag": "Security",
+      "problem": "Credential stuffing and abusive traffic patterns threaten account safety.",
+      "context": "Security controls need to reduce abuse without blocking legitimate users.",
+      "constraints": [
+        "Preserve real users",
+        "Keep visibility",
+        "Roll out safely"
+      ],
+      "solution": "Edge controls with AWS WAF, CloudFront, Bot Control, CAPTCHA strategy and operational visibility.",
+      "architecture": [
+        "CloudFront edge",
+        "AWS WAF rules",
+        "Bot Control",
+        "CAPTCHA",
+        "CloudWatch visibility"
+      ],
+      "stack": [
+        "AWS WAF",
+        "CloudFront",
+        "Bot Control",
+        "CloudWatch"
+      ],
+      "impact": "Practical security engineering with telemetry and rollout thinking.",
+      "lessons": [
+        "Security is a traffic problem too",
+        "Controls need observability"
+      ]
+    },
+    {
+      "id": "certs",
+      "title": "AWS Certificate Validator",
+      "tag": "Automation",
+      "problem": "Certificates can expire silently across endpoints, files, keystores and AWS accounts.",
+      "solution": "Multi-account validation workflow with persistence and notifications.",
+      "architecture": [
+        "Lambda orchestrator",
+        "SSM execution",
+        "DynamoDB state",
+        "SNS notifications"
+      ],
+      "stack": [
+        "Lambda",
+        "SSM",
+        "DynamoDB",
+        "SNS",
+        "IAM"
+      ],
+      "impact": "Transforms hidden certificate risk into visible operational signals.",
+      "lessons": [
+        "Operational risk should become data",
+        "Expiration checks should not depend on memory"
+      ]
+    },
+    {
+      "id": "bemod",
+      "title": "Bemod",
+      "tag": "AI Infrastructure",
+      "problem": "Different AI tasks need different models, latency and cost profiles.",
+      "solution": "A local/cloud model routing experiment using Ollama, LiteLLM and FastAPI.",
+      "architecture": [
+        "Router API",
+        "LiteLLM abstraction",
+        "Ollama local runtime",
+        "Cloud-provider readiness"
+      ],
+      "stack": [
+        "Docker",
+        "FastAPI",
+        "LiteLLM",
+        "Ollama"
+      ],
+      "impact": "Explores AI engineering beyond prompts.",
+      "lessons": [
+        "Model choice is architecture",
+        "Local and cloud models should coexist"
+      ]
+    },
+    {
+      "id": "corly",
+      "title": "Corly",
+      "tag": "Product Engineering",
+      "problem": "Real estate and financing workflows are often scattered across spreadsheets and tools.",
+      "solution": "CRM and workflow platform concept for leads, proposals, contracts and commissions.",
+      "architecture": [
+        "FastAPI backend",
+        "MySQL database",
+        "React frontend",
+        "Role-based workflows"
+      ],
+      "stack": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "MySQL",
+        "React",
+        "Docker"
+      ],
+      "impact": "Shows product thinking applied to operational workflows.",
+      "lessons": [
+        "Workflow visibility is product value",
+        "Business roles should shape the system model"
+      ]
+    },
+    {
+      "id": "jira-ai",
+      "title": "Jira + Confluence AI",
+      "tag": "AI Workflow",
+      "problem": "Support teams repeat answers already documented in knowledge bases and previous tickets.",
+      "solution": "AI-assisted retrieval workflow with evidence-based recommendations.",
+      "architecture": [
+        "Webhook trigger",
+        "Knowledge search",
+        "Evidence retrieval",
+        "Recommendation runtime"
+      ],
+      "stack": [
+        "Jira",
+        "Confluence",
+        "AWS",
+        "OpenSearch-ready",
+        "RAG"
+      ],
+      "impact": "Uses AI as targeted operational leverage.",
+      "lessons": [
+        "AI is most useful when grounded",
+        "Evidence matters more than fluency"
+      ]
+    }
+  ]
+}

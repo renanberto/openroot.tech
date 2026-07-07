@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "software-engineering",
+      "title": "Software Engineering",
+      "accent": "green",
+      "description": "Backend services, APIs, automation tools and production-oriented code.",
+      "items": [
+        "Python",
+        "Go",
+        "Node.js",
+        "TypeScript",
+        "REST APIs",
+        "FastAPI",
+        "CLI tools",
+        "Automation"
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Platform and DevOps",
+      "accent": "blue",
+      "description": "Linux, containers, Kubernetes, CI/CD and operational workflows.",
+      "items": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "Helm",
+        "GitHub Actions",
+        "CI/CD",
+        "Runbooks"
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud and AWS",
+      "accent": "yellow",
+      "description": "Cloud architecture, AWS services and production operations.",
+      "items": [
+        "AWS",
+        "EKS",
+        "Lambda",
+        "CloudFront",
+        "IAM",
+        "DynamoDB",
+        "SSM",
+        "WAF"
+      ]
+    },
+    {
+      "id": "observability",
+      "title": "Observability",
+      "accent": "purple",
+      "description": "Logs, metrics, dashboards, alerts and incident analysis.",
+      "items": [
+        "CloudWatch",
+        "Grafana",
+        "Container Insights",
+        "Metrics",
+        "Logs",
+        "Alarms"
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Security-minded Engineering",
+      "accent": "red",
+      "description": "Practical controls for traffic, identity, certificates and abuse mitigation.",
+      "items": [
+        "AWS WAF",
+        "Bot Control",
+        "CAPTCHA",
+        "IAM",
+        "TLS",
+        "Certificates",
+        "Credential Stuffing"
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "AI Engineering Workflows",
+      "accent": "cyan",
+      "description": "AI applied to development, repository understanding, RAG and operational workflows.",
+      "items": [
+        "OpenAI",
+        "Anthropic",
+        "Ollama",
+        "LiteLLM",
+        "RAG",
+        "Embeddings",
+        "AI Agents",
+        "MCP"
+      ]
+    }
+  ]
+}

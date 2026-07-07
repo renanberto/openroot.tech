@@ -1,0 +1,62 @@
+{
+  "id": "renanberto",
+  "name": "Renan Berto",
+  "title": "Software Engineer + DevOps Engineer",
+  "tagline": "Software first. Infrastructure native.",
+  "headline": "I design, build and operate production software across backend development, cloud infrastructure, Kubernetes, automation, security, observability and AI engineering workflows.",
+  "location": "Brazil",
+  "languages": [
+    "Python",
+    "Go",
+    "Node.js"
+  ],
+  "photo": "/assets/profile.png",
+  "summary": [
+    "I build software that survives production.",
+    "Based in Lisboa, working with global engineering teams.",
+    "My work moves between application code and infrastructure: writing services, automating systems, operating Kubernetes, protecting edges and using AI to improve engineering workflows.",
+    "I like building systems that are simple to operate, observable and useful in production."
+  ],
+  "roles": [
+    "Software Engineer",
+    "DevOps Engineer",
+    "Cloud Engineer",
+    "Platform-minded Builder",
+    "AI-aware Engineer"
+  ],
+  "bestFit": [
+    "DevOps Engineer",
+    "Platform Engineer",
+    "Cloud Engineer",
+    "Software Engineer with infrastructure ownership",
+    "Automation and internal tooling roles"
+  ],
+  "professionalPersonal": {
+    "location": "Lisboa, Portugal / Remote",
+    "languagesSpoken": [
+      "Portuguese",
+      "English"
+    ],
+    "workPreference": [
+      "Remote",
+      "Hybrid",
+      "Global teams"
+    ],
+    "targetRoles": [
+      "Software Engineer",
+      "DevOps Engineer",
+      "Platform Engineer",
+      "Cloud Engineer",
+      "AI Engineering"
+    ],
+    "workingStyle": "I like building systems that are simple to operate, observable and useful in production.",
+    "currentInterests": [
+      "AI agents",
+      "RAG",
+      "local models",
+      "developer automation",
+      "platform engineering"
+    ],
+    "availability": "Open to relevant technical conversations, global opportunities and engineering collaboration."
+  }
+}

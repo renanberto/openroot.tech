@@ -1,0 +1,16 @@
+{
+  "name": "OpenRoot OS",
+  "short_name": "OpenRoot",
+  "description": "OpenRoot OS - Renan Berto technical portfolio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b10",
+  "theme_color": "#080b10",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

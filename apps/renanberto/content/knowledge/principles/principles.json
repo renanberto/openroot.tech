@@ -1,0 +1,10 @@
+{
+  "principles": [
+    "Build software that survives production.",
+    "Infrastructure is software.",
+    "Automation is documentation in executable form.",
+    "Prefer boring production over clever production.",
+    "AI should amplify engineers, not replace engineering.",
+    "Every incident should leave the system better."
+  ]
+}

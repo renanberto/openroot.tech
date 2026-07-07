@@ -1,0 +1,15 @@
+{
+  "id": "openroot",
+  "title": "OpenRoot OS 2.0",
+  "steps": [
+    "Powering on OpenRoot OS",
+    "Loading kernel",
+    "Mounting knowledge filesystem",
+    "Registering plugins",
+    "Loading OpenRoot theme",
+    "Indexing engineering profile",
+    "Preparing Explorer Mode",
+    "Preparing Profile Mode",
+    "System ready"
+  ]
+}

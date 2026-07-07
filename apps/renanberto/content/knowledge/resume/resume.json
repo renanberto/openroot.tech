@@ -1,0 +1,7 @@
+{
+  "label": "Resume",
+  "status": "placeholder",
+  "file": "/assets/resume.pdf",
+  "note": "Place resume.pdf in apps/renanberto/public/assets when ready.",
+  "summary": "Software Engineer + DevOps Engineer focused on Python, Go, Node.js, AWS, Kubernetes, automation, security, observability and AI engineering workflows."
+}

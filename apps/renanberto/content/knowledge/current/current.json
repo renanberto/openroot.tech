@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "title": "OpenRoot OS",
+      "status": "Building",
+      "description": "A static portfolio operating-system framework for technical professionals."
+    },
+    {
+      "title": "AI engineering workflows",
+      "status": "Exploring",
+      "description": "Agents, RAG, local/cloud model routing and developer automation."
+    },
+    {
+      "title": "Production automation",
+      "status": "Active interest",
+      "description": "Tools and systems that make operations safer, simpler and more observable."
+    }
+  ]
+}

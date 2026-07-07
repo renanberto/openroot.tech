@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@openroot/core": [
+        "packages/core/src/index.ts"
+      ],
+      "@openroot/content": [
+        "packages/content/src/index.ts"
+      ],
+      "@openroot/filesystem": [
+        "packages/filesystem/src/index.ts"
+      ],
+      "@openroot/shell": [
+        "packages/shell/src/index.ts"
+      ],
+      "@openroot/terminal": [
+        "packages/terminal/src/index.ts"
+      ],
+      "@openroot/profile": [
+        "packages/profile/src/index.ts"
+      ],
+      "@openroot/themes": [
+        "packages/themes/src/index.ts"
+      ],
+      "@openroot/plugins": [
+        "packages/plugins/src/index.ts"
+      ],
+      "@openroot/plugin-filesystem": [
+        "packages/plugin-filesystem/src/index.ts"
+      ],
+      "@openroot/plugin-portfolio": [
+        "packages/plugin-portfolio/src/index.ts"
+      ],
+      "@openroot/plugin-fun": [
+        "packages/plugin-fun/src/index.ts"
+      ],
+      "@openroot/plugin-system": [
+        "packages/plugin-system/src/index.ts"
+      ],
+      "@openroot/graph": [
+        "packages/graph/src/index.ts"
+      ],
+      "@openroot/story": [
+        "packages/story/src/index.ts"
+      ],
+      "@openroot/theme-openroot": [
+        "packages/theme-openroot/src/index.ts"
+      ]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "apps",
+    "packages",
+    "tests",
+    "scripts"
+  ]
+}

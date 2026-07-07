@@ -1,0 +1,480 @@
+{
+  "profile": {
+    "id": "renanberto",
+    "name": "Renan Berto",
+    "title": "Software Engineer + DevOps Engineer",
+    "tagline": "Software first. Infrastructure native.",
+    "headline": "I design, build and operate production software across backend development, cloud infrastructure, Kubernetes, automation, security, observability and AI engineering workflows.",
+    "location": "Brazil",
+    "languages": [
+      "Python",
+      "Go",
+      "Node.js"
+    ],
+    "photo": "/assets/profile.png",
+    "summary": [
+      "I build software that survives production.",
+      "Based in Lisboa, working with global engineering teams.",
+      "My work moves between application code and infrastructure: writing services, automating systems, operating Kubernetes, protecting edges and using AI to improve engineering workflows.",
+      "I like building systems that are simple to operate, observable and useful in production."
+    ],
+    "roles": [
+      "Software Engineer",
+      "DevOps Engineer",
+      "Cloud Engineer",
+      "Platform-minded Builder",
+      "AI-aware Engineer"
+    ],
+    "bestFit": [
+      "DevOps Engineer",
+      "Platform Engineer",
+      "Cloud Engineer",
+      "Software Engineer with infrastructure ownership",
+      "Automation and internal tooling roles"
+    ],
+    "professionalPersonal": {
+      "location": "Lisboa, Portugal / Remote",
+      "languagesSpoken": [
+        "Portuguese",
+        "English"
+      ],
+      "workPreference": [
+        "Remote",
+        "Hybrid",
+        "Global teams"
+      ],
+      "targetRoles": [
+        "Software Engineer",
+        "DevOps Engineer",
+        "Platform Engineer",
+        "Cloud Engineer",
+        "AI Engineering"
+      ],
+      "workingStyle": "I like building systems that are simple to operate, observable and useful in production.",
+      "currentInterests": [
+        "AI agents",
+        "RAG",
+        "local models",
+        "developer automation",
+        "platform engineering"
+      ],
+      "availability": "Open to relevant technical conversations, global opportunities and engineering collaboration."
+    }
+  },
+  "contact": {
+    "email": "renanbertoo@gmail.com",
+    "github": "https://github.com/renanberto",
+    "linkedin": "https://www.linkedin.com/in/renan-berto"
+  },
+  "skills": {
+    "groups": [
+      {
+        "id": "software-engineering",
+        "title": "Software Engineering",
+        "accent": "green",
+        "description": "Backend services, APIs, automation tools and production-oriented code.",
+        "items": [
+          "Python",
+          "Go",
+          "Node.js",
+          "TypeScript",
+          "REST APIs",
+          "FastAPI",
+          "CLI tools",
+          "Automation"
+        ]
+      },
+      {
+        "id": "platform",
+        "title": "Platform and DevOps",
+        "accent": "blue",
+        "description": "Linux, containers, Kubernetes, CI/CD and operational workflows.",
+        "items": [
+          "Linux",
+          "Docker",
+          "Kubernetes",
+          "Helm",
+          "GitHub Actions",
+          "CI/CD",
+          "Runbooks"
+        ]
+      },
+      {
+        "id": "cloud",
+        "title": "Cloud and AWS",
+        "accent": "yellow",
+        "description": "Cloud architecture, AWS services and production operations.",
+        "items": [
+          "AWS",
+          "EKS",
+          "Lambda",
+          "CloudFront",
+          "IAM",
+          "DynamoDB",
+          "SSM",
+          "WAF"
+        ]
+      },
+      {
+        "id": "observability",
+        "title": "Observability",
+        "accent": "purple",
+        "description": "Logs, metrics, dashboards, alerts and incident analysis.",
+        "items": [
+          "CloudWatch",
+          "Grafana",
+          "Container Insights",
+          "Metrics",
+          "Logs",
+          "Alarms"
+        ]
+      },
+      {
+        "id": "security",
+        "title": "Security-minded Engineering",
+        "accent": "red",
+        "description": "Practical controls for traffic, identity, certificates and abuse mitigation.",
+        "items": [
+          "AWS WAF",
+          "Bot Control",
+          "CAPTCHA",
+          "IAM",
+          "TLS",
+          "Certificates",
+          "Credential Stuffing"
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "AI Engineering Workflows",
+        "accent": "cyan",
+        "description": "AI applied to development, repository understanding, RAG and operational workflows.",
+        "items": [
+          "OpenAI",
+          "Anthropic",
+          "Ollama",
+          "LiteLLM",
+          "RAG",
+          "Embeddings",
+          "AI Agents",
+          "MCP"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "projects": [
+      {
+        "id": "openroot",
+        "title": "OpenRoot OS",
+        "tag": "Framework",
+        "problem": "Technical portfolios usually look generic and fail to show how engineers think.",
+        "context": "The project started as a static terminal portfolio and evolved into a reusable operating-system-inspired framework.",
+        "constraints": [
+          "GitHub Pages friendly",
+          "Reusable by other engineers",
+          "Single source of truth for content"
+        ],
+        "solution": "Explorer Mode and Profile Mode powered by shared structured content, plugins and a virtual filesystem.",
+        "architecture": [
+          "Vite + TypeScript",
+          "Monorepo packages",
+          "Virtual filesystem",
+          "Shell runtime",
+          "Story engine",
+          "Knowledge graph"
+        ],
+        "stack": [
+          "TypeScript",
+          "Vite",
+          "Virtual Filesystem",
+          "Shell",
+          "Plugins",
+          "Profile Renderer"
+        ],
+        "impact": "Turns a personal portfolio into a reusable engineering product.",
+        "lessons": [
+          "A portfolio can be a product",
+          "The same content can serve technical and non-technical audiences"
+        ]
+      },
+      {
+        "id": "waf",
+        "title": "AWS WAF Security Cases",
+        "tag": "Security",
+        "problem": "Credential stuffing and abusive traffic patterns threaten account safety.",
+        "context": "Security controls need to reduce abuse without blocking legitimate users.",
+        "constraints": [
+          "Preserve real users",
+          "Keep visibility",
+          "Roll out safely"
+        ],
+        "solution": "Edge controls with AWS WAF, CloudFront, Bot Control, CAPTCHA strategy and operational visibility.",
+        "architecture": [
+          "CloudFront edge",
+          "AWS WAF rules",
+          "Bot Control",
+          "CAPTCHA",
+          "CloudWatch visibility"
+        ],
+        "stack": [
+          "AWS WAF",
+          "CloudFront",
+          "Bot Control",
+          "CloudWatch"
+        ],
+        "impact": "Practical security engineering with telemetry and rollout thinking.",
+        "lessons": [
+          "Security is a traffic problem too",
+          "Controls need observability"
+        ]
+      },
+      {
+        "id": "certs",
+        "title": "AWS Certificate Validator",
+        "tag": "Automation",
+        "problem": "Certificates can expire silently across endpoints, files, keystores and AWS accounts.",
+        "solution": "Multi-account validation workflow with persistence and notifications.",
+        "architecture": [
+          "Lambda orchestrator",
+          "SSM execution",
+          "DynamoDB state",
+          "SNS notifications"
+        ],
+        "stack": [
+          "Lambda",
+          "SSM",
+          "DynamoDB",
+          "SNS",
+          "IAM"
+        ],
+        "impact": "Transforms hidden certificate risk into visible operational signals.",
+        "lessons": [
+          "Operational risk should become data",
+          "Expiration checks should not depend on memory"
+        ]
+      },
+      {
+        "id": "bemod",
+        "title": "Bemod",
+        "tag": "AI Infrastructure",
+        "problem": "Different AI tasks need different models, latency and cost profiles.",
+        "solution": "A local/cloud model routing experiment using Ollama, LiteLLM and FastAPI.",
+        "architecture": [
+          "Router API",
+          "LiteLLM abstraction",
+          "Ollama local runtime",
+          "Cloud-provider readiness"
+        ],
+        "stack": [
+          "Docker",
+          "FastAPI",
+          "LiteLLM",
+          "Ollama"
+        ],
+        "impact": "Explores AI engineering beyond prompts.",
+        "lessons": [
+          "Model choice is architecture",
+          "Local and cloud models should coexist"
+        ]
+      },
+      {
+        "id": "corly",
+        "title": "Corly",
+        "tag": "Product Engineering",
+        "problem": "Real estate and financing workflows are often scattered across spreadsheets and tools.",
+        "solution": "CRM and workflow platform concept for leads, proposals, contracts and commissions.",
+        "architecture": [
+          "FastAPI backend",
+          "MySQL database",
+          "React frontend",
+          "Role-based workflows"
+        ],
+        "stack": [
+          "Python",
+          "FastAPI",
+          "SQLAlchemy",
+          "MySQL",
+          "React",
+          "Docker"
+        ],
+        "impact": "Shows product thinking applied to operational workflows.",
+        "lessons": [
+          "Workflow visibility is product value",
+          "Business roles should shape the system model"
+        ]
+      },
+      {
+        "id": "jira-ai",
+        "title": "Jira + Confluence AI",
+        "tag": "AI Workflow",
+        "problem": "Support teams repeat answers already documented in knowledge bases and previous tickets.",
+        "solution": "AI-assisted retrieval workflow with evidence-based recommendations.",
+        "architecture": [
+          "Webhook trigger",
+          "Knowledge search",
+          "Evidence retrieval",
+          "Recommendation runtime"
+        ],
+        "stack": [
+          "Jira",
+          "Confluence",
+          "AWS",
+          "OpenSearch-ready",
+          "RAG"
+        ],
+        "impact": "Uses AI as targeted operational leverage.",
+        "lessons": [
+          "AI is most useful when grounded",
+          "Evidence matters more than fluency"
+        ]
+      }
+    ]
+  },
+  "principles": {
+    "principles": [
+      "Build software that survives production.",
+      "Infrastructure is software.",
+      "Automation is documentation in executable form.",
+      "Prefer boring production over clever production.",
+      "AI should amplify engineers, not replace engineering.",
+      "Every incident should leave the system better."
+    ]
+  },
+  "research": {
+    "current": [
+      "AI agents for repository understanding",
+      "Local/cloud LLM routing",
+      "RAG for internal support workflows",
+      "DevOps automation with AI assistance",
+      "Reusable portfolio operating-system framework",
+      "Shell-based UX for technical storytelling"
+    ]
+  },
+  "experience": {
+    "summary": "10+ years working across software engineering, DevOps, cloud infrastructure, Linux systems, automation, observability, security and production operations.",
+    "roles": [
+      {
+        "title": "Software Engineer + DevOps Engineer",
+        "focus": "Backend software, cloud platforms, Kubernetes, automation and production reliability.",
+        "signals": [
+          "Python",
+          "Go",
+          "Node.js",
+          "AWS",
+          "Kubernetes",
+          "Linux",
+          "Automation"
+        ]
+      },
+      {
+        "title": "Platform-minded Builder",
+        "focus": "Internal tools, CI/CD, operational workflows and developer experience.",
+        "signals": [
+          "GitHub Actions",
+          "Docker",
+          "Helm",
+          "Runbooks",
+          "Observability"
+        ]
+      },
+      {
+        "title": "AI-aware Engineer",
+        "focus": "Using LLMs, local models, RAG and agents to improve engineering workflows.",
+        "signals": [
+          "OpenAI",
+          "Anthropic",
+          "Ollama",
+          "LiteLLM",
+          "RAG",
+          "Agents"
+        ]
+      }
+    ]
+  },
+  "usage": {
+    "quickStart": [
+      {
+        "label": "Recruiter summary",
+        "command": "recruiter"
+      },
+      {
+        "label": "Engineering stack",
+        "command": "stack"
+      },
+      {
+        "label": "Project catalog",
+        "command": "stories"
+      },
+      {
+        "label": "Security case",
+        "command": "story waf"
+      },
+      {
+        "label": "Knowledge graph",
+        "command": "graph AWS"
+      },
+      {
+        "label": "Profile mode",
+        "command": "profile"
+      }
+    ],
+    "personas": [
+      {
+        "name": "Recruiter",
+        "path": [
+          "profile",
+          "recruiter",
+          "contact"
+        ],
+        "goal": "Understand fit quickly and reach out."
+      },
+      {
+        "name": "Engineer",
+        "path": [
+          "help",
+          "tree /",
+          "story openroot",
+          "graph TypeScript"
+        ],
+        "goal": "Inspect how the system thinks and how the runtime is structured."
+      },
+      {
+        "name": "Manager",
+        "path": [
+          "profile",
+          "roadmap",
+          "story waf",
+          "principles"
+        ],
+        "goal": "Understand impact, communication and decision-making."
+      }
+    ]
+  },
+  "resume": {
+    "label": "Resume",
+    "status": "placeholder",
+    "file": "/assets/resume.pdf",
+    "note": "Place resume.pdf in apps/renanberto/public/assets when ready.",
+    "summary": "Software Engineer + DevOps Engineer focused on Python, Go, Node.js, AWS, Kubernetes, automation, security, observability and AI engineering workflows."
+  },
+  "current": {
+    "items": [
+      {
+        "title": "OpenRoot OS",
+        "status": "Building",
+        "description": "A static portfolio operating-system framework for technical professionals."
+      },
+      {
+        "title": "AI engineering workflows",
+        "status": "Exploring",
+        "description": "Agents, RAG, local/cloud model routing and developer automation."
+      },
+      {
+        "title": "Production automation",
+        "status": "Active interest",
+        "description": "Tools and systems that make operations safer, simpler and more observable."
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "runtime": "static",
+  "host": "github-pages",
+  "build": "os-release-1-prod"
+}
